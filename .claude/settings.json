@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "WebFetch(domain:www.victorbellot.com)",
+      "WebFetch(domain:www.victorbellot.fr)",
+      "Bash(npm install *)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

@@ -1,65 +1,146 @@
-import Image from "next/image";
+import Hero from "./components/Hero";
+
+const projects = [
+  {
+    id: 1,
+    title: "MES-Track",
+    description: "Suivi en temps réel des salles informatiques — équipements, incidents, rapports.",
+    tech: ["Next.js", "TypeScript", "Prisma"],
+    link: "https://mes-track.vercel.app",
+    year: "2024",
+  },
+  {
+    id: 2,
+    title: "Gestion de Rapports",
+    description: "Création, validation et archivage de rapports avec workflow d'approbation.",
+    tech: ["React", "Node.js", "PostgreSQL"],
+    link: null,
+    year: "2024",
+  },
+  {
+    id: 3,
+    title: "EduPrime",
+    description: "Plateforme complète pour école primaire : élèves, notes, emplois du temps.",
+    tech: ["Next.js", "MySQL", "Tailwind CSS"],
+    link: null,
+    year: "2024",
+  },
+  {
+    id: 4,
+    title: "Football Club Manager",
+    description: "Gestion d'un club de football : joueurs, matchs, statistiques, finances.",
+    tech: ["React", "Express", "MongoDB"],
+    link: null,
+    year: "2023",
+  },
+  {
+    id: 5,
+    title: "Location Pro",
+    description: "Plateforme immobilière — biens, contrats, paiements, interface propriétaire.",
+    tech: ["Next.js", "Stripe", "PostgreSQL"],
+    link: null,
+    year: "2023",
+  },
+];
+
+const stack = [
+  "Next.js", "React", "TypeScript", "Node.js",
+  "PostgreSQL", "MySQL", "MongoDB", "Prisma", "Tailwind CSS", "REST API",
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <main>
+
+      <Hero />
+
+      {/* ── PROJETS ── */}
+      <section id="work" className="px-6 md:px-14 lg:px-20 py-24 border-t border-zinc-100">
+
+        <div className="flex items-end justify-between mb-14">
+          <div>
+            <p className="text-[11px] tracking-[0.25em] uppercase text-zinc-400 mb-3">
+              Sélection de projets
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900">
+              Réalisations
+            </h2>
+          </div>
+          <span className="text-xs text-zinc-300 hidden md:block">0{projects.length} projets</span>
+        </div>
+
+        {/* Liste éditoriale */}
+        <div className="divide-y divide-zinc-100">
+          {projects.map((p, i) => (
+            <div
+              key={p.id}
+              className="project-row flex items-center gap-6 py-6 rounded-sm"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+              <span className="font-mono text-[11px] text-zinc-300 w-6 shrink-0 select-none">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+
+              <div className="flex-1 min-w-0">
+                <span className="text-base font-semibold text-zinc-900">{p.title}</span>
+                <span className="hidden md:inline text-sm text-zinc-400 ml-5">
+                  {p.tech.join(" · ")}
+                </span>
+                <p className="md:hidden text-xs text-zinc-400 mt-0.5">{p.tech.join(" · ")}</p>
+              </div>
+
+              <span className="text-xs text-zinc-300 shrink-0 hidden lg:block">{p.year}</span>
+
+              {p.link ? (
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="shrink-0 text-[11px] tracking-wide text-zinc-400 hover:text-zinc-900 transition-colors flex items-center gap-1"
+                >
+                  Voir ↗
+                </a>
+              ) : (
+                <span className="shrink-0 text-[11px] text-zinc-200">Privé</span>
+              )}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ── CONTACT ── */}
+      <section id="contact" className="px-6 md:px-14 lg:px-20 py-32 border-t border-zinc-100">
+        <div className="max-w-2xl">
+          <p className="text-[11px] tracking-[0.25em] uppercase text-zinc-400 mb-8">
+            Contact
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 leading-tight mb-10">
+            Travaillons<br />ensemble.
+          </h2>
+          <p className="text-sm text-zinc-700 leading-relaxed mb-10 max-w-sm"
+             style={{ fontFamily: "var(--font-sans)", fontWeight: 300 }}>
+            Un projet en tête ? Discutons-en — je suis disponible pour de
+            nouvelles collaborations.
+          </p>
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:djonihkm@gmail.com"
+            className="inline-flex items-center gap-4 text-base font-medium text-zinc-900 group mb-10"
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
+            djonihkm@gmail.com
+            <span className="block h-px bg-zinc-900 w-8 group-hover:w-20 transition-all duration-500 ease-out" />
           </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          <div className="flex gap-6 pt-8 border-t border-zinc-100">
+            <a href="https://github.com/djonihkm" target="_blank" rel="noopener noreferrer"
+               className="text-xs tracking-[0.18em] uppercase text-zinc-400 hover:text-zinc-900 transition-colors">
+              GitHub
+            </a>
+            <a href="mailto:djonihkm@gmail.com"
+               className="text-xs tracking-[0.18em] uppercase text-zinc-400 hover:text-zinc-900 transition-colors">
+              Email
+            </a>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+    </main>
   );
 }
