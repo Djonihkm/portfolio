@@ -1,6 +1,6 @@
-import { image } from "framer-motion/client";
 import Hero from "./components/Hero";
 import ImageModal from "./components/ImageModal";
+import WorkApproach from "./components/WorkApproach";
 import ContactSection from "./components/ContactSection";
 
 const techColors: Record<string, { bg: string; text: string; glow: string }> = {
@@ -250,6 +250,7 @@ export default function Home() {
         </div>
       </section>
 
+      <WorkApproach />
       <ContactSection />
     </main>
   );

@@ -37,7 +37,7 @@ export default function RootLayout({
             <span className="text-sm font-bold" style={{ fontFamily: "var(--font-display)" }}>
               <Link href="/">Djoni OUEDANOU</Link>
             </span>
-            <p className="text-xs text-zinc-400">© 2025 — Développeur Web Full Stack</p>
+            <p className="text-xs text-zinc-400">© 2026 — Développeur Web Full Stack</p>
             <div className="flex justify-end">
               <a href="mailto:luciejerom@gmail.com"
                  className="text-xs text-zinc-400 hover:text-zinc-900 transition-colors">Email</a>
