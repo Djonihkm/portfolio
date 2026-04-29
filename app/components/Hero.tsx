@@ -159,12 +159,27 @@ export default function Hero() {
             >
               Voir mes projets
             </motion.a>
-            <a
-              href="#contact"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold text-white border border-white/25 hover:border-white/60 hover:bg-white/5 transition-all duration-300"
-            >
-              Me contacter
-            </a>
+            <div className="relative">
+              {/* Rings pulsants */}
+              {!reduced && <>
+                <span className="absolute inset-0 rounded-full border border-white/30 animate-contact-ping" />
+                <span className="absolute inset-0 rounded-full border border-white/15 animate-contact-ping" style={{ animationDelay: "0.8s" }} />
+              </>}
+              <a
+                href="#contact"
+                className="relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white border border-white/30 hover:border-white/70 hover:bg-white/8 transition-all duration-300 group"
+              >
+                Me contacter
+                <svg
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                  width="13" height="13" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"
+                >
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
           </motion.div>
 
           {/* Ligne de crédibilité */}
