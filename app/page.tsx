@@ -1,6 +1,7 @@
 import { image } from "framer-motion/client";
 import Hero from "./components/Hero";
 import ImageModal from "./components/ImageModal";
+import ContactSection from "./components/ContactSection";
 
 const techColors: Record<string, { bg: string; text: string; glow: string }> = {
   "Next.js": { bg: "#18181b", text: "#ffffff", glow: "rgba(24,24,27,0.35)" },
@@ -29,7 +30,7 @@ const projects = [
     tech: ["Next.js", "TypeScript", "Prisma"],
     link: "https://inmes-track.vercel.app/",
     year: "2026",
-    month: "Nov.",
+    month: "Mars.",
     image: "/images/inmes/inmes.png",
   },
   {
@@ -40,7 +41,7 @@ const projects = [
     tech: ["Next.js", "PostgreSQL", "Tailwind"],
     link: "https://chez-toi.vercel.app/",
     year: "2026",
-    month: "Juil.",
+    month: "Février.",
     image: "/images/cheztoi/cheztoi.png",
   },
   {
@@ -59,7 +60,7 @@ const projects = [
     title: "Football Club Manager",
     description:
       "Gestion d'un club de football : joueurs, matchs, statistiques, finances.",
-    tech: ["Laravel", "MySQL"],
+    tech: ["Laravel", "MySQL", "Bootstrap CSS"],
     link: "https://olympicfc.hkmhub.com/",
     year: "2025",
     month: "Oct.",
@@ -249,52 +250,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── CONTACT ── */}
-      <section
-        id="contact"
-        className="px-6 md:px-14 lg:px-20 py-32 border-t border-zinc-100"
-      >
-        <div className="max-w-2xl">
-          <p className="text-[11px] tracking-[0.25em] uppercase text-zinc-400 mb-8">
-            Contact
-          </p>
-          <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-zinc-900 leading-tight mb-10">
-            Travaillons
-            <br />
-            ensemble.
-          </h2>
-          <p
-            className="text-sm text-zinc-700 leading-relaxed mb-10 max-w-sm"
-            style={{ fontFamily: "var(--font-sans)", fontWeight: 300 }}
-          >
-            Un projet en tête ? Discutons-en — je suis disponible pour de
-            nouvelles collaborations.
-          </p>
-          <a
-            href="mailto:djonihkm@gmail.com"
-            className="inline-flex items-center gap-4 text-base font-medium text-zinc-900 group mb-10"
-          >
-            djonihkm@gmail.com
-            <span className="block h-px bg-zinc-900 w-8 group-hover:w-20 transition-all duration-500 ease-out" />
-          </a>
-          <div className="flex gap-6 pt-8 border-t border-zinc-100">
-            <a
-              href="https://github.com/djonihkm"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs tracking-[0.18em] uppercase text-zinc-400 hover:text-zinc-900 transition-colors"
-            >
-              GitHub
-            </a>
-            <a
-              href="mailto:djonihkm@gmail.com"
-              className="text-xs tracking-[0.18em] uppercase text-zinc-400 hover:text-zinc-900 transition-colors"
-            >
-              Email
-            </a>
-          </div>
-        </div>
-      </section>
+      <ContactSection />
     </main>
   );
 }

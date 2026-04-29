@@ -129,6 +129,39 @@ h1, h2, h3, h4, h5, h6,
   .globe-m1, .globe-m2 { animation: none; }
 }
 
+
+/* ── Contact — item hover ── */
+.contact-item:hover {
+  background: rgba(0,0,0,0.025);
+}
+
+/* ── Contact — input focus ── */
+.contact-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(192,57,43,0.08);
+}
+
+/* ── Contact — bouton envoi shimmer ── */
+.send-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transform: skewX(-15deg);
+  transition: left 0s;
+}
+.send-btn:not(:disabled):hover::before {
+  left: 160%;
+  transition: left 0.55s ease;
+}
+.send-btn:not(:disabled):hover {
+  box-shadow: 0 6px 24px rgba(192,57,43,0.45);
+  transform: translateY(-1px);
+}
+
 /* ── Glow pulsé sur le mot "web" ── */
 @keyframes glow {
   0%, 100% { text-shadow: 0 0 0px rgba(192,57,43,0); }

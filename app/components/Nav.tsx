@@ -14,7 +14,6 @@ export default function Nav() {
 
   const links = [
     { href: "#work",    label: "Projets" },
-    { href: "#about",   label: "À propos" },
     { href: "#contact", label: "Contact" },
   ];
 
