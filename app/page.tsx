@@ -213,7 +213,7 @@ export default function Home() {
                       href={p.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="shrink-0 ml-4 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-lg"
+                      className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full text-[11px] font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-lg w-full sm:w-auto sm:ml-4 sm:shrink-0"
                       style={{
                         background: "var(--accent)",
                         boxShadow: "0 2px 10px rgba(192,57,43,0.35)",
@@ -223,7 +223,7 @@ export default function Home() {
                     </a>
                   ) : (
                     <span
-                      className="priv-badge shrink-0 ml-4 inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-[10px] font-semibold tracking-widest uppercase text-slate-200 select-none"
+                      className="priv-badge inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full text-[10px] font-semibold tracking-widest uppercase text-slate-200 select-none w-full sm:w-auto sm:ml-4 sm:shrink-0"
                       style={{ background: "#1e293b" }}
                     >
                       <svg

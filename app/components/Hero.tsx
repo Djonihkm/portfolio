@@ -98,7 +98,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative bg-[#0f0f0f] min-h-screen md:h-screen flex flex-col md:grid md:grid-cols-2 pt-16"
+      className="relative bg-[#0f0f0f] md:h-screen flex flex-col md:grid md:grid-cols-2 pt-16"
     >
       {!reduced && <CursorSpotlight sectionRef={sectionRef} />}
 
