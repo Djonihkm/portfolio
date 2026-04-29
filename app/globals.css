@@ -43,6 +43,92 @@ h1, h2, h3, h4, h5, h6,
 .project-row { transition: padding-left 0.3s ease, background 0.3s ease; }
 .project-row:hover { padding-left: 12px; background: #F8F8F8; }
 
+/* ── Badge Privé — bordure tournante accent ── */
+@keyframes spin-border {
+  to { transform: rotate(360deg); }
+}
+
+.priv-badge {
+  position: relative;
+  isolation: isolate;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.priv-badge::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 9999px;
+  background: conic-gradient(
+    from 0deg,
+    #C0392B 0deg,
+    rgba(192,57,43,0.4) 60deg,
+    transparent 120deg,
+    transparent 240deg,
+    rgba(192,57,43,0.4) 300deg,
+    #C0392B 360deg
+  );
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.priv-badge:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(15,23,42,0.45);
+}
+.priv-badge:hover::before {
+  opacity: 1;
+  animation: spin-border 1.8s linear infinite;
+}
+
+/* ── Tech pills — shimmer sweep ── */
+.tech-pill {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.tech-pill::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.28), transparent);
+  transform: skewX(-15deg);
+  transition: left 0s;
+  pointer-events: none;
+}
+.tech-pill:hover::before {
+  left: 160%;
+  transition: left 0.5s ease;
+}
+.tech-pill:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 5px 16px var(--pill-glow);
+}
+
+/* ── Globe : méridiens animés gauche → droite, cercle extérieur fixe ── */
+@keyframes globe-meridian {
+  0%   { transform: scaleX(0.04); }
+  25%  { transform: scaleX(1);    }
+  50%  { transform: scaleX(0.04); }
+  75%  { transform: scaleX(1);    }
+  100% { transform: scaleX(0.04); }
+}
+.globe-m {
+  transform-box: fill-box;
+  transform-origin: center;
+  fill: none;
+}
+.globe-m1 { animation: globe-meridian 3s linear infinite; }
+.globe-m2 { animation: globe-meridian 3s linear infinite -0.375s; }
+.globe-m3 { animation: globe-meridian 3s linear infinite -0.75s; }
+.globe-m4 { animation: globe-meridian 3s linear infinite -1.125s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .globe-m1, .globe-m2 { animation: none; }
+}
+
 /* ── Glow pulsé sur le mot "web" ── */
 @keyframes glow {
   0%, 100% { text-shadow: 0 0 0px rgba(192,57,43,0); }

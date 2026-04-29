@@ -3,6 +3,37 @@
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import AnimatedTitle from "./AnimatedTitle";
+
+function GlobeSpinner({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none"
+      stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round"
+    >
+      <defs>
+        <clipPath id="globe-clip">
+          <circle cx="12" cy="12" r="9.5" />
+        </clipPath>
+      </defs>
+      {/* Contenu clipé au cercle */}
+      <g clipPath="url(#globe-clip)">
+        {/* 5 parallèles espacés de ~4 unités */}
+        <line x1="2" y1="4"  x2="22" y2="4"  />
+        <line x1="2" y1="8"  x2="22" y2="8"  />
+        <line x1="2" y1="12" x2="22" y2="12" />
+        <line x1="2" y1="16" x2="22" y2="16" />
+        <line x1="2" y1="20" x2="22" y2="20" />
+        {/* 4 méridiens espacés à 45° */}
+        <ellipse cx="12" cy="12" rx="6" ry="10" className="globe-m globe-m1" />
+        <ellipse cx="12" cy="12" rx="6" ry="10" className="globe-m globe-m2" />
+        <ellipse cx="12" cy="12" rx="6" ry="10" className="globe-m globe-m3" />
+        <ellipse cx="12" cy="12" rx="6" ry="10" className="globe-m globe-m4" />
+      </g>
+      {/* Cercle extérieur — toujours rond, dessiné par-dessus */}
+      <circle cx="12" cy="12" r="10" />
+    </svg>
+  );
+}
 
 /* ── Compteur animé 0 → target ── */
 function useCounter(target: number, delayMs = 600) {
@@ -77,42 +108,45 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative h-screen bg-[#0f0f0f] grid grid-cols-1 md:grid-cols-2 pt-16 overflow-hidden"
+      className="relative h-screen bg-[#0f0f0f] grid grid-cols-1 md:grid-cols-2 pt-16"
     >
       {!reduced && <CursorSpotlight sectionRef={sectionRef} />}
 
       {/* Left — texte */}
       <div className="relative z-10 flex flex-col justify-between px-6 md:px-14 lg:px-20 py-12 md:py-16">
 
-        {/* Pills */}
-        <motion.div className="flex flex-wrap gap-2" {...fadeUp(0)}>
-          {["Next.js", "React", "TypeScript", "Node.js", "Laravel"].map((t) => (
-            <span
+        {/* Pills — entrée en cascade */}
+        <motion.div
+          className="flex flex-wrap gap-2"
+          initial="hidden"
+          animate="visible"
+          variants={reduced ? {} : {
+            visible: { transition: { staggerChildren: 0.09 } },
+          }}
+        >
+          {["Next.js", "TypeScript", "Node.js", "Laravel", "Postgresql"].map((t) => (
+            <motion.span
               key={t}
+              variants={reduced ? {} : {
+                hidden:  { opacity: 0, y: 14 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+              }}
               className="text-[11px] font-medium tracking-widest uppercase border border-white/20 text-white/60 px-3 py-1.5 rounded-full"
               style={{ background: "rgba(255,255,255,0.05)" }}
             >
               {t}
-            </span>
+            </motion.span>
           ))}
         </motion.div>
 
         {/* Titre + CTAs */}
         <div>
-          <motion.h5
+          <h5
             className="mt-3 font-bold tracking-tight leading-[0.9] text-white mb-7"
             style={{ fontSize: "clamp(26px, 4vw, 52px)" }}
-            {...fadeUp(0.15)}
           >
-            Je transforme
-            <br />
-            vos idées en
-            <br />
-            produits{" "}
-            <span className="text-glow" style={{ color: "var(--accent)" }}>web</span>
-            <br />
-            qui convertissent.
-          </motion.h5>
+            <AnimatedTitle />
+          </h5>
 
           {/* Deux CTAs */}
           <motion.div className="flex flex-wrap gap-3 mb-6" {...fadeUp(0.3)}>
@@ -135,10 +169,13 @@ export default function Hero() {
 
           {/* Ligne de crédibilité */}
           <motion.p
-            className="text-[11px] text-white/35 tracking-wide mb-3"
+            className="text-[11px] text-white/35 tracking-wide mb-3 flex items-center gap-1.5"
             {...fadeUp(0.4)}
           >
-            ✦ Disponible pour freelance · Basé à Cotonou, Bénin
+            <span aria-hidden style={{ display: "inline-block" }}>
+              <GlobeSpinner size={25} />
+            </span>
+            Disponible pour freelance · Basé à Cotonou, Bénin
           </motion.p>
         </div>
 
@@ -179,7 +216,7 @@ export default function Hero() {
           }}
         >
           <Image
-            src="/ouedanou.jpeg"
+            src="/image.png"
             alt="Djoni OUEDANOU"
             fill
             className="object-cover object-top"
@@ -195,7 +232,7 @@ export default function Hero() {
         className="relative md:hidden mx-6 h-52 overflow-hidden order-first mt-1 rounded-2xl"
         style={{ boxShadow: "0 16px 40px rgba(0,0,0,0.4)" }}
       >
-        <Image src="/ouedanou.jpeg" alt="Djoni OUEDANOU" fill className="object-cover object-top" priority />
+        <Image src="/image.png" alt="Djoni OUEDANOU" fill className="object-cover object-top" priority />
         <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0f0f0f] to-transparent" />
       </div>
     </section>
