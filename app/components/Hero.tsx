@@ -15,27 +15,22 @@ function GlobeSpinner({ size = 18 }: { size?: number }) {
           <circle cx="12" cy="12" r="9.5" />
         </clipPath>
       </defs>
-      {/* Contenu clipé au cercle */}
       <g clipPath="url(#globe-clip)">
-        {/* 5 parallèles espacés de ~4 unités */}
         <line x1="2" y1="4"  x2="22" y2="4"  />
         <line x1="2" y1="8"  x2="22" y2="8"  />
         <line x1="2" y1="12" x2="22" y2="12" />
         <line x1="2" y1="16" x2="22" y2="16" />
         <line x1="2" y1="20" x2="22" y2="20" />
-        {/* 4 méridiens espacés à 45° */}
         <ellipse cx="12" cy="12" rx="6" ry="10" className="globe-m globe-m1" />
         <ellipse cx="12" cy="12" rx="6" ry="10" className="globe-m globe-m2" />
         <ellipse cx="12" cy="12" rx="6" ry="10" className="globe-m globe-m3" />
         <ellipse cx="12" cy="12" rx="6" ry="10" className="globe-m globe-m4" />
       </g>
-      {/* Cercle extérieur — toujours rond, dessiné par-dessus */}
       <circle cx="12" cy="12" r="10" />
     </svg>
   );
 }
 
-/* ── Compteur animé 0 → target ── */
 function useCounter(target: number, delayMs = 600) {
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -56,7 +51,6 @@ function useCounter(target: number, delayMs = 600) {
   return count;
 }
 
-/* ── Spotlight curseur ── */
 function CursorSpotlight({ sectionRef }: { sectionRef: React.RefObject<HTMLElement | null> }) {
   const [pos, setPos] = useState({ x: -9999, y: -9999 });
   useEffect(() => {
@@ -88,41 +82,35 @@ export default function Hero() {
   const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
   const fadeUp = (delay = 0) =>
-    reduced
-      ? {}
-      : {
-          initial: { opacity: 0, y: 20 },
-          animate: { opacity: 1, y: 0 },
-          transition: { duration: 0.75, ease, delay },
-        };
+    reduced ? {} : {
+      initial: { opacity: 0, y: 20 },
+      animate: { opacity: 1, y: 0 },
+      transition: { duration: 0.75, ease, delay },
+    };
 
-  const photoAnim = reduced
-    ? {}
-    : {
-        initial: { opacity: 0, scale: 0.95 },
-        animate: { opacity: 1, scale: 1 },
-        transition: { duration: 1.1, ease, delay: 0.2 },
-      };
+  const photoAnim = reduced ? {} : {
+    initial: { opacity: 0, scale: 0.95 },
+    animate: { opacity: 1, scale: 1 },
+    transition: { duration: 1.1, ease, delay: 0.2 },
+  };
 
   return (
     <section
       ref={sectionRef}
       id="home"
-      className="relative h-screen bg-[#0f0f0f] grid grid-cols-1 md:grid-cols-2 pt-16"
+      className="relative bg-[#0f0f0f] min-h-screen md:h-screen flex flex-col md:grid md:grid-cols-2 pt-16"
     >
       {!reduced && <CursorSpotlight sectionRef={sectionRef} />}
 
-      {/* Left — texte */}
-      <div className="relative z-10 flex flex-col justify-between px-6 md:px-14 lg:px-20 py-12 md:py-16">
+      {/* ── Contenu ── */}
+      <div className="relative z-10 flex flex-col justify-between px-6 md:px-14 lg:px-20 py-16 md:py-16 gap-8 md:gap-0">
 
-        {/* Pills — entrée en cascade */}
+        {/* Pills */}
         <motion.div
           className="flex flex-wrap gap-2"
           initial="hidden"
           animate="visible"
-          variants={reduced ? {} : {
-            visible: { transition: { staggerChildren: 0.09 } },
-          }}
+          variants={reduced ? {} : { visible: { transition: { staggerChildren: 0.09 } } }}
         >
           {["Next.js", "TypeScript", "Node.js", "Laravel", "Postgresql"].map((t) => (
             <motion.span
@@ -139,17 +127,16 @@ export default function Hero() {
           ))}
         </motion.div>
 
-        {/* Titre + CTAs */}
+        {/* Titre + CTAs + dispo */}
         <div>
-          <h5
-            className="mt-3 font-bold tracking-tight leading-[0.9] text-white mb-7"
-            style={{ fontSize: "clamp(26px, 4vw, 52px)" }}
+          <h1
+            className="font-bold tracking-tight leading-[0.92] text-white mb-6"
+            style={{ fontSize: "clamp(32px, 7vw, 52px)" }}
           >
             <AnimatedTitle />
-          </h5>
+          </h1>
 
-          {/* Deux CTAs */}
-          <motion.div className="flex flex-wrap gap-3 mb-6" {...fadeUp(0.3)}>
+          <motion.div className="flex flex-wrap gap-3 mb-5" {...fadeUp(0.3)}>
             <motion.a
               href="#work"
               className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold text-white"
@@ -160,7 +147,6 @@ export default function Hero() {
               Voir mes projets
             </motion.a>
             <div className="relative">
-              {/* Rings pulsants */}
               {!reduced && <>
                 <span className="absolute inset-0 rounded-full border border-white/30 animate-contact-ping" />
                 <span className="absolute inset-0 rounded-full border border-white/15 animate-contact-ping" style={{ animationDelay: "0.8s" }} />
@@ -182,9 +168,8 @@ export default function Hero() {
             </div>
           </motion.div>
 
-          {/* Ligne de crédibilité */}
           <motion.p
-            className="text-[11px] text-white/35 tracking-wide mb-3 flex items-center gap-1.5"
+            className="text-[11px] text-white/35 tracking-wide flex items-center gap-1.5"
             {...fadeUp(0.4)}
           >
             <span aria-hidden style={{ display: "inline-block" }}>
@@ -194,7 +179,7 @@ export default function Hero() {
           </motion.p>
         </div>
 
-        {/* Stats bas avec compteurs */}
+        {/* Stats */}
         <motion.div
           className="flex items-center gap-5 text-[11px] text-white/30 tracking-wide"
           {...fadeUp(0.5)}
@@ -211,7 +196,7 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Right — photo */}
+      {/* ── Desktop photo ── */}
       <motion.div
         className="relative hidden md:block p-6 pl-0 z-10"
         {...photoAnim}
@@ -225,10 +210,7 @@ export default function Hero() {
         />
         <div
           className="relative h-full rounded-3xl overflow-hidden"
-          style={{
-            transform: "translateY(-20px)",
-            boxShadow: "0 32px 64px rgba(0,0,0,0.55)",
-          }}
+          style={{ transform: "translateY(-20px)", boxShadow: "0 32px 64px rgba(0,0,0,0.55)" }}
         >
           <Image
             src="/image.png"
@@ -241,15 +223,6 @@ export default function Hero() {
           <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-[#0f0f0f] via-[#0f0f0f]/60 to-transparent" />
         </div>
       </motion.div>
-
-      {/* Mobile — photo compacte */}
-      <div
-        className="relative md:hidden mx-6 h-52 overflow-hidden order-first mt-1 rounded-2xl"
-        style={{ boxShadow: "0 16px 40px rgba(0,0,0,0.4)" }}
-      >
-        <Image src="/image.png" alt="Djoni OUEDANOU" fill className="object-cover object-top" priority />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#0f0f0f] to-transparent" />
-      </div>
     </section>
   );
 }

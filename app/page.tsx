@@ -120,7 +120,7 @@ export default function Home() {
           {projects.map((p, i) => (
             <article
               key={p.id}
-              className="group grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-0 py-5 max-h-113.5 overflow-hidden"
+              className="group grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-0 py-5 md:max-h-113.5 md:overflow-hidden"
             >
               {/* Visuel gauche */}
               <div className="relative aspect-[16/10] bg-zinc-950 overflow-hidden">
@@ -182,8 +182,8 @@ export default function Home() {
                 </div>
 
                 {/* Footer — tech + lien */}
-                <div className="flex items-center justify-between pt-5 border-t border-zinc-100">
-                  <div className="flex flex-nowrap gap-1.5">
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between pt-5 border-t border-zinc-100">
+                  <div className="flex flex-wrap gap-1.5">
                     {p.tech.map((t) => {
                       const c = techColors[t] ?? {
                         bg: "rgba(0,0,0,0.04)",
@@ -194,7 +194,7 @@ export default function Home() {
                       return (
                         <span
                           key={t}
-                          className="tech-pill text-[10px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
+                          className="tech-pill whitespace-nowrap text-[10px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
                           style={
                             {
                               background: c.bg,

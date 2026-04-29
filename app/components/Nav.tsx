@@ -55,9 +55,9 @@ export default function Nav() {
           onClick={() => setMenuOpen((o) => !o)}
           aria-label="Menu"
         >
-          <span className={`block w-5 h-px transition-all duration-200 origin-center ${scrolled ? "bg-zinc-900" : "bg-white"} ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
-          <span className={`block w-5 h-px bg-zinc-900 transition-all duration-200 ${menuOpen ? "opacity-0" : ""}`} />
-          <span className={`block w-5 h-px bg-zinc-900 transition-all duration-200 origin-center ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
+          <span className={`block w-5 h-px transition-all duration-200 origin-center ${scrolled || menuOpen ? "bg-zinc-900" : "bg-white"} ${menuOpen ? "rotate-45 translate-y-1.5" : ""}`} />
+          <span className={`block w-5 h-px transition-all duration-200 ${scrolled || menuOpen ? "bg-zinc-900" : "bg-white"} ${menuOpen ? "opacity-0" : ""}`} />
+          <span className={`block w-5 h-px transition-all duration-200 origin-center ${scrolled || menuOpen ? "bg-zinc-900" : "bg-white"} ${menuOpen ? "-rotate-45 -translate-y-1.5" : ""}`} />
         </button>
       </nav>
 
