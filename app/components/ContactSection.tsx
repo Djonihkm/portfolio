@@ -81,10 +81,9 @@ export default function ContactSection() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<
-    "idle" | "loading" | "success" | "error"
-  >("idle");
+  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [preference, setPreference] = useState<"email" | "phone">("email");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -93,11 +92,12 @@ export default function ContactSection() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, preference }),
       });
       if (!res.ok) throw new Error();
       setStatus("success");
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", phone: "", message: "" });
+      setPreference("email");
     } catch {
       setStatus("error");
     }
@@ -281,56 +281,112 @@ export default function ContactSection() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-                {/* Nom */}
+
+                {/* Préférence de contact */}
+                <div>
+                  <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
+                    Comment vous recontacter ?
+                  </label>
+                  <div className="flex gap-2">
+                    {(["email", "phone"] as const).map((p) => (
+                      <button
+                        key={p}
+                        type="button"
+                        onClick={() => setPreference(p)}
+                        className="flex-1 py-2.5 rounded-xl text-[11px] font-semibold tracking-widest uppercase transition-all duration-200 cursor-pointer"
+                        style={preference === p ? {
+                          background: "var(--accent)",
+                          color: "#fff",
+                          boxShadow: "0 2px 10px rgba(192,57,43,0.3)",
+                        } : {
+                          background: "#f4f4f5",
+                          color: "#52525b",
+                        }}
+                      >
+                        {p === "email" ? "Par email" : "Par téléphone"}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Nom — toujours requis */}
                 <div className="form-field">
                   <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
-                    Nom
+                    Nom <span className="text-[var(--accent)]">*</span>
                   </label>
                   <input
                     type="text"
                     required
                     placeholder="Votre nom"
                     value={form.name}
-                    onChange={(e) =>
-                      setForm((f) => ({ ...f, name: e.target.value }))
-                    }
+                    onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
                     className="contact-input w-full px-4 py-3 rounded-xl border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-300 outline-none bg-zinc-50 focus:bg-white transition-all duration-200"
                   />
                 </div>
 
-                {/* Email */}
-                <div className="form-field">
-                  <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    required
-                    placeholder="votre@email.com"
-                    value={form.email}
-                    onChange={(e) =>
-                      setForm((f) => ({ ...f, email: e.target.value }))
-                    }
-                    className="contact-input w-full px-4 py-3 rounded-xl border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-300 outline-none bg-zinc-50 focus:bg-white transition-all duration-200"
-                  />
-                </div>
+                {/* Email — visible uniquement si préférence email */}
+                <motion.div
+                  initial={false}
+                  animate={{ height: preference === "email" ? "auto" : 0, opacity: preference === "email" ? 1 : 0 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="form-field pt-0.5">
+                    <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
+                      Email <span className="text-[var(--accent)]">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required={preference === "email"}
+                      placeholder="votre@email.com"
+                      value={form.email}
+                      onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                      className="contact-input w-full px-4 py-3 rounded-xl border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-300 outline-none bg-zinc-50 focus:bg-white transition-all duration-200"
+                    />
+                  </div>
+                </motion.div>
 
-                {/* Message */}
+                {/* Téléphone — visible uniquement si préférence téléphone */}
+                <motion.div
+                  initial={false}
+                  animate={{ height: preference === "phone" ? "auto" : 0, opacity: preference === "phone" ? 1 : 0 }}
+                  transition={{ duration: 0.25, ease: "easeInOut" }}
+                  className="overflow-hidden"
+                >
+                  <div className="form-field pt-0.5">
+                    <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
+                      Téléphone <span className="text-[var(--accent)]">*</span>
+                    </label>
+                    <input
+                      type="tel"
+                      required={preference === "phone"}
+                      placeholder="+229 XX XX XX XX"
+                      value={form.phone}
+                      onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+                      className="contact-input w-full px-4 py-3 rounded-xl border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-300 outline-none bg-zinc-50 focus:bg-white transition-all duration-200"
+                    />
+                  </div>
+                </motion.div>
+
+                {/* Message — toujours requis */}
                 <div className="form-field">
                   <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
-                    Message
+                    Message <span className="text-[var(--accent)]">*</span>
                   </label>
                   <textarea
                     required
-                    rows={5}
+                    rows={4}
                     placeholder="Décrivez votre projet..."
                     value={form.message}
-                    onChange={(e) =>
-                      setForm((f) => ({ ...f, message: e.target.value }))
-                    }
+                    onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
                     className="contact-input w-full px-4 py-3 rounded-xl border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-300 outline-none bg-zinc-50 focus:bg-white transition-all duration-200 resize-none"
                   />
                 </div>
+
+                {/* Légende champs obligatoires */}
+                <p className="text-[10px] text-zinc-400 -mt-1">
+                  <span className="text-[var(--accent)]">*</span> Champs obligatoires
+                </p>
 
                 {status === "error" && (
                   <p className="text-xs text-red-500">
