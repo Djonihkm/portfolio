@@ -145,30 +145,18 @@ export default function ContactSection() {
           </motion.h2>
         </motion.div>
 
-        {/* Labels colonnes */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 mb-10">
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, ease, delay: 0.1 }}
-            className="text-[11px] tracking-[0.25em] uppercase text-zinc-600"
-          >
-            Contact
-          </motion.p>
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, ease, delay: 0.1 }}
-            className="text-[11px] tracking-[0.25em] uppercase text-zinc-600"
-          >
-            Vous souhaitez m&apos;écrire directement ?
-          </motion.p>
-        </div>
-
         {/* Grille 2 colonnes */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20">
           {/* ── Colonne gauche — coordonnées ── */}
           <div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, ease, delay: 0.1 }}
+              className="text-[11px] tracking-[0.25em] uppercase text-zinc-600 mb-8"
+            >
+              Contact
+            </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -243,6 +231,14 @@ export default function ContactSection() {
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, ease, delay: 0.25 }}
           >
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 1 } : {}}
+              transition={{ duration: 0.6, ease, delay: 0.1 }}
+              className="text-[11px] tracking-[0.25em] uppercase text-zinc-600 mb-8"
+            >
+              Vous souhaitez m&apos;écrire directement ?
+            </motion.p>
             {status === "success" ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}

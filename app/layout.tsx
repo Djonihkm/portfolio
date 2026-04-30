@@ -33,7 +33,7 @@ export default function RootLayout({
         <Nav />
         {children}
         <footer className="border-t border-zinc-100 px-6 md:px-14 lg:px-20 py-10">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+          <div className="flex flex-col items-center md:flex-row md:justify-between md:items-center gap-3 text-center md:text-left">
             <span className="text-sm font-bold" style={{ fontFamily: "var(--font-display)" }}>
               <Link href="/">Djoni OUEDANOU</Link>
             </span>
