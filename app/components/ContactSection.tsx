@@ -237,7 +237,7 @@ export default function ContactSection() {
               transition={{ duration: 0.6, ease, delay: 0.1 }}
               className="text-[11px] tracking-[0.25em] uppercase text-zinc-600 mb-8"
             >
-              Vous souhaitez m&apos;écrire directement ?
+              Vous pouvez m'écrire directement.
             </motion.p>
             {status === "success" ? (
               <motion.div
