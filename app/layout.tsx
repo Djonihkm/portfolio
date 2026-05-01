@@ -45,7 +45,7 @@ export default function RootLayout({
             </p>
             <div className="flex justify-end">
               <a
-                href="mailto:contact@hkmhub.com"
+                href="mailto:ouedanoudjoniadoule@gmail.com"
                 className="text-xs text-zinc-400 hover:text-zinc-900 transition-colors"
               >
                 Email

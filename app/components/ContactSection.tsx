@@ -6,8 +6,8 @@ import { motion, useInView } from "framer-motion";
 const contacts = [
   {
     label: "Email",
-    value: "contact@hkmhub.com",
-    href: "mailto:contact@hkmhub.com",
+    value: "ouedanoudjoniadoule@gmail.com",
+    href: "mailto:ouedanoudjoniadoule@gmail.com",
     color: "#EA4335",
     bg: "rgba(234,67,53,0.08)",
     icon: (
