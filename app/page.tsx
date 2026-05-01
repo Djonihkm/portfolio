@@ -1,6 +1,7 @@
 import Hero from "./components/Hero";
 import ImageModal from "./components/ImageModal";
 import WorkApproach from "./components/WorkApproach";
+import Testimonials from "./components/Testimonials";
 import ContactSection from "./components/ContactSection";
 
 const techColors: Record<string, { bg: string; text: string; glow: string }> = {
@@ -251,6 +252,7 @@ export default function Home() {
       </section>
 
       <WorkApproach />
+      <Testimonials />
       <ContactSection />
     </main>
   );

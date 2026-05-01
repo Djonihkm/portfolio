@@ -6,8 +6,8 @@ import { motion, useInView } from "framer-motion";
 const contacts = [
   {
     label: "Email",
-    value: "luciejerom@gmail.com",
-    href: "mailto:luciejerom@gmail.com",
+    value: "contact@hkmhub.com",
+    href: "mailto:contact@hkmhub.com",
     color: "#EA4335",
     bg: "rgba(234,67,53,0.08)",
     icon: (
@@ -81,9 +81,16 @@ export default function ContactSection() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
-  const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
   const [preference, setPreference] = useState<"email" | "phone">("email");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -120,26 +127,32 @@ export default function ContactSection() {
           <motion.h2
             className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 whitespace-nowrap px-8 md:px-12"
             initial={{ x: "calc(-100vw - 100%)" }}
-            animate={inView ? {
-              x: [
-                "calc(-100vw - 100%)", /* départ hors écran gauche */
-                "6%",                  /* léger dépassement */
-                "-4%",                 /* recul */
-                "2.5%",               /* avant */
-                "-1.5%",              /* arrière */
-                "0.8%",               /* avant */
-                "-0.4%",              /* arrière */
-                "0%",                 /* arrêt centré */
-                "0%",                 /* pause au centre */
-                "calc(100vw + 100%)", /* sortie droite */
-              ],
-              transition: {
-                duration: 11,
-                times: [0, 0.38, 0.44, 0.49, 0.53, 0.57, 0.60, 0.63, 0.82, 0.97],
-                ease: "linear",
-                repeat: Infinity,
-              }
-            } : {}}
+            animate={
+              inView
+                ? {
+                    x: [
+                      "calc(-100vw - 100%)" /* départ hors écran gauche */,
+                      "6%" /* léger dépassement */,
+                      "-4%" /* recul */,
+                      "2.5%" /* avant */,
+                      "-1.5%" /* arrière */,
+                      "0.8%" /* avant */,
+                      "-0.4%" /* arrière */,
+                      "0%" /* arrêt centré */,
+                      "0%" /* pause au centre */,
+                      "calc(100vw + 100%)" /* sortie droite */,
+                    ],
+                    transition: {
+                      duration: 11,
+                      times: [
+                        0, 0.38, 0.44, 0.49, 0.53, 0.57, 0.6, 0.63, 0.82, 0.97,
+                      ],
+                      ease: "linear",
+                      repeat: Infinity,
+                    },
+                  }
+                : {}
+            }
           >
             Travaillons ensemble.
           </motion.h2>
@@ -277,7 +290,6 @@ export default function ContactSection() {
               </motion.div>
             ) : (
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-
                 {/* Préférence de contact */}
                 <div>
                   <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
@@ -290,14 +302,18 @@ export default function ContactSection() {
                         type="button"
                         onClick={() => setPreference(p)}
                         className="flex-1 py-2.5 rounded-xl text-[11px] font-semibold tracking-widest uppercase transition-all duration-200 cursor-pointer"
-                        style={preference === p ? {
-                          background: "var(--accent)",
-                          color: "#fff",
-                          boxShadow: "0 2px 10px rgba(192,57,43,0.3)",
-                        } : {
-                          background: "#f4f4f5",
-                          color: "#52525b",
-                        }}
+                        style={
+                          preference === p
+                            ? {
+                                background: "var(--accent)",
+                                color: "#fff",
+                                boxShadow: "0 2px 10px rgba(192,57,43,0.3)",
+                              }
+                            : {
+                                background: "#f4f4f5",
+                                color: "#52525b",
+                              }
+                        }
                       >
                         {p === "email" ? "Par email" : "Par téléphone"}
                       </button>
@@ -315,7 +331,9 @@ export default function ContactSection() {
                     required
                     placeholder="Votre nom"
                     value={form.name}
-                    onChange={(e) => setForm((f) => ({ ...f, name: e.target.value }))}
+                    onChange={(e) =>
+                      setForm((f) => ({ ...f, name: e.target.value }))
+                    }
                     className="contact-input w-full px-4 py-3 rounded-xl border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-300 outline-none bg-zinc-50 focus:bg-white transition-all duration-200"
                   />
                 </div>
@@ -323,7 +341,10 @@ export default function ContactSection() {
                 {/* Email — visible uniquement si préférence email */}
                 <motion.div
                   initial={false}
-                  animate={{ height: preference === "email" ? "auto" : 0, opacity: preference === "email" ? 1 : 0 }}
+                  animate={{
+                    height: preference === "email" ? "auto" : 0,
+                    opacity: preference === "email" ? 1 : 0,
+                  }}
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
@@ -336,7 +357,9 @@ export default function ContactSection() {
                       required={preference === "email"}
                       placeholder="votre@email.com"
                       value={form.email}
-                      onChange={(e) => setForm((f) => ({ ...f, email: e.target.value }))}
+                      onChange={(e) =>
+                        setForm((f) => ({ ...f, email: e.target.value }))
+                      }
                       className="contact-input w-full px-4 py-3 rounded-xl border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-300 outline-none bg-zinc-50 focus:bg-white transition-all duration-200"
                     />
                   </div>
@@ -345,7 +368,10 @@ export default function ContactSection() {
                 {/* Téléphone — visible uniquement si préférence téléphone */}
                 <motion.div
                   initial={false}
-                  animate={{ height: preference === "phone" ? "auto" : 0, opacity: preference === "phone" ? 1 : 0 }}
+                  animate={{
+                    height: preference === "phone" ? "auto" : 0,
+                    opacity: preference === "phone" ? 1 : 0,
+                  }}
                   transition={{ duration: 0.25, ease: "easeInOut" }}
                   className="overflow-hidden"
                 >
@@ -358,7 +384,9 @@ export default function ContactSection() {
                       required={preference === "phone"}
                       placeholder="+229 XX XX XX XX"
                       value={form.phone}
-                      onChange={(e) => setForm((f) => ({ ...f, phone: e.target.value }))}
+                      onChange={(e) =>
+                        setForm((f) => ({ ...f, phone: e.target.value }))
+                      }
                       className="contact-input w-full px-4 py-3 rounded-xl border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-300 outline-none bg-zinc-50 focus:bg-white transition-all duration-200"
                     />
                   </div>
@@ -374,14 +402,17 @@ export default function ContactSection() {
                     rows={4}
                     placeholder="Décrivez votre projet..."
                     value={form.message}
-                    onChange={(e) => setForm((f) => ({ ...f, message: e.target.value }))}
+                    onChange={(e) =>
+                      setForm((f) => ({ ...f, message: e.target.value }))
+                    }
                     className="contact-input w-full px-4 py-3 rounded-xl border border-zinc-200 text-sm text-zinc-900 placeholder:text-zinc-300 outline-none bg-zinc-50 focus:bg-white transition-all duration-200 resize-none"
                   />
                 </div>
 
                 {/* Légende champs obligatoires */}
                 <p className="text-[10px] text-zinc-400 -mt-1">
-                  <span className="text-[var(--accent)]">*</span> Champs obligatoires
+                  <span className="text-[var(--accent)]">*</span> Champs
+                  obligatoires
                 </p>
 
                 {status === "error" && (
