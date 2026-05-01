@@ -1,4 +1,7 @@
+"use client";
+
 import Hero from "./components/Hero";
+import { useLanguage } from "./context/LanguageContext";
 import ImageModal from "./components/ImageModal";
 import WorkApproach from "./components/WorkApproach";
 import Services from "./components/Services";
@@ -83,6 +86,8 @@ const projects = [
 
 
 export default function Home() {
+  const { t } = useLanguage();
+
   return (
     <main>
       <Hero />
@@ -93,14 +98,14 @@ export default function Home() {
           <div className="flex items-end justify-between mb-10">
             <div>
               <p className="text-[11px] tracking-[0.25em] uppercase text-zinc-500 mb-3">
-                Sélection de projets
+                {t.projects.label}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900">
-                Réalisations
+                {t.projects.title}
               </h2>
             </div>
             <span className="text-xs text-zinc-900 hidden md:block">
-              0{projects.length} projets
+              {String(projects.length).padStart(2, "0")} {t.projects.label}
             </span>
           </div>
         </div>
@@ -167,7 +172,7 @@ export default function Home() {
                     className="text-sm text-zinc-900 mb-6 text-[15px] leading-6 tracking-widest"
                     style={{ fontFamily: "var(--font-sans)", fontWeight: 300 }}
                   >
-                    {p.description}
+                    {t.projects.descriptions[p.id] ?? p.description}
                   </p>
                 </div>
 
@@ -209,7 +214,7 @@ export default function Home() {
                         boxShadow: "0 2px 10px rgba(192,57,43,0.35)",
                       }}
                     >
-                      Voir ↗
+                      {t.projects.see}
                     </a>
                   ) : (
                     <span
@@ -230,7 +235,7 @@ export default function Home() {
                         <rect x="3" y="11" width="18" height="11" rx="2" />
                         <path d="M7 11V7a5 5 0 0 1 10 0v4" />
                       </svg>
-                      Privé
+                      {t.projects.private}
                     </span>
                   )}
                 </div>

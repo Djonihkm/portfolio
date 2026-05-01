@@ -2,112 +2,57 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
-const offers = [
-  {
-    name: "Site Vitrine",
-    price: "499",
-    description: "Votre présence en ligne, propre et professionnelle.",
-    features: [
-      "Design personnalisé",
-      "Jusqu'à 5 pages",
-      "Responsive mobile-first",
-      "SEO optimisé",
-      "Formulaire de contact",
-      "Livraison en 5–7 jours",
-    ],
-    highlight: false,
-    cta: "Demander un devis",
-  },
-  {
-    name: "MVP / Web App",
-    price: "1 499",
-    description: "Transformez votre idée en produit fonctionnel rapidement.",
-    features: [
-      "Application web complète",
-      "Authentification utilisateurs",
-      "Base de données & API REST",
-      "Interface admin",
-      "Déploiement inclus",
-      "Livraison en 10–15 jours",
-    ],
-    highlight: true,
-    cta: "Démarrer mon projet",
-  },
-  {
-    name: "Sur mesure",
-    price: null,
-    description: "Un projet complexe, une équipe, une vision à long terme.",
-    features: [
-      "SaaS, e-commerce, plateforme",
-      "Architecture scalable",
-      "Intégrations tierces",
-      "Accompagnement continu",
-      "Support & maintenance",
-      "Délai selon périmètre",
-    ],
-    highlight: false,
-    cta: "Discutons-en",
-  },
+const stepIcons = [
+  () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+    </svg>
+  ),
+  () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+      <polyline points="14 2 14 8 20 8" />
+      <line x1="16" y1="13" x2="8" y2="13" />
+      <line x1="16" y1="17" x2="8" y2="17" />
+      <polyline points="10 9 9 9 8 9" />
+    </svg>
+  ),
+  () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="16 18 22 12 16 6" />
+      <polyline points="8 6 2 12 8 18" />
+    </svg>
+  ),
+  () => (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+    </svg>
+  ),
 ];
 
-const steps = [
-  {
-    number: "01",
-    title: "Brief",
-    description:
-      "On échange sur ton besoin, tes objectifs et ton budget — par email, WhatsApp ou appel vidéo.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-      </svg>
-    ),
-  },
-  {
-    number: "02",
-    title: "Devis",
-    description:
-      "Tu reçois sous 48h une proposition détaillée : périmètre, planning et tarif fixe. Pas de surprise.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-        <polyline points="14 2 14 8 20 8" />
-        <line x1="16" y1="13" x2="8" y2="13" />
-        <line x1="16" y1="17" x2="8" y2="17" />
-        <polyline points="10 9 9 9 8 9" />
-      </svg>
-    ),
-  },
-  {
-    number: "03",
-    title: "Développement",
-    description:
-      "Je développe par itérations avec des points réguliers. Tu vois l'avancement à chaque étape.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="16 18 22 12 16 6" />
-        <polyline points="8 6 2 12 8 18" />
-      </svg>
-    ),
-  },
-  {
-    number: "04",
-    title: "Livraison",
-    description:
-      "Déploiement, tests finaux, remise des accès et documentation. Ton produit est prêt à l'emploi.",
-    icon: (
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-      </svg>
-    ),
-  },
-];
+const prices = ["499", "1 499", null];
+const highlights = [false, true, false];
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Services() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
+  const { t } = useLanguage();
+
+  const offers = t.services.offers.map((o, i) => ({
+    ...o,
+    price: prices[i],
+    highlight: highlights[i],
+  }));
+
+  const steps = t.services.steps.map((s, i) => ({
+    ...s,
+    number: String(i + 1).padStart(2, "0"),
+    icon: stepIcons[i](),
+  }));
 
   return (
     <section
@@ -126,7 +71,7 @@ export default function Services() {
               transition={{ duration: 0.5, ease }}
               className="text-[11px] tracking-[0.25em] uppercase text-zinc-500 mb-3"
             >
-              Services & Tarifs
+              {t.services.label}
             </motion.p>
             <motion.h2
               initial={{ opacity: 0, y: 16 }}
@@ -134,7 +79,7 @@ export default function Services() {
               transition={{ duration: 0.6, ease, delay: 0.07 }}
               className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900"
             >
-              Ce que je propose.
+              {t.services.title}
             </motion.h2>
           </div>
           <motion.span
@@ -143,7 +88,7 @@ export default function Services() {
             transition={{ duration: 0.5, delay: 0.2 }}
             className="text-[11px] text-zinc-400 hidden md:block tracking-wide"
           >
-            Paiement en €, $, £ ou XOF
+            {t.services.currency_note}
           </motion.span>
         </div>
 
@@ -171,7 +116,7 @@ export default function Services() {
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center justify-center">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-25 animate-ping" />
                   <span className="relative text-[10px] font-bold tracking-[0.2em] uppercase bg-[var(--accent)] text-white px-3 py-1 rounded-full whitespace-nowrap">
-                    Populaire
+                    {t.services.popular}
                   </span>
                 </div>
               )}
@@ -184,14 +129,14 @@ export default function Services() {
                 <div className="flex items-end gap-1 mb-3">
                   {o.price ? (
                     <>
-                      <span className={`text-[11px] font-medium ${o.highlight ? "text-zinc-400" : "text-zinc-400"}`}>à partir de</span>
+                      <span className={`text-[11px] font-medium ${o.highlight ? "text-zinc-400" : "text-zinc-400"}`}>{t.services.from}</span>
                       <span className={`text-3xl font-bold tracking-tight ${o.highlight ? "text-white" : "text-zinc-900"}`}>
                         {o.price} €
                       </span>
                     </>
                   ) : (
                     <span className={`text-3xl font-bold tracking-tight ${o.highlight ? "text-white" : "text-zinc-900"}`}>
-                      Sur devis
+                      {t.services.on_quote}
                     </span>
                   )}
                 </div>
@@ -241,7 +186,7 @@ export default function Services() {
           transition={{ duration: 0.5, ease, delay: 0.3 }}
           className="text-[11px] tracking-[0.25em] uppercase text-zinc-500 mb-4"
         >
-          Processus
+          {t.services.process_label}
         </motion.p>
         <motion.h3
           initial={{ opacity: 0, y: 16 }}
@@ -249,7 +194,7 @@ export default function Services() {
           transition={{ duration: 0.6, ease, delay: 0.37 }}
           className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 mb-12"
         >
-          Comment ça marche ?
+          {t.services.process_title}
         </motion.h3>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-zinc-100">

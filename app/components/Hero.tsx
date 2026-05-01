@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import AnimatedTitle from "./AnimatedTitle";
+import { useLanguage } from "../context/LanguageContext";
 
 function GlobeSpinner({ size = 18 }: { size?: number }) {
   return (
@@ -78,6 +79,7 @@ export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
   const count5 = useCounter(5, 650);
   const count2 = useCounter(2, 650);
+  const { t } = useLanguage();
 
   const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -133,7 +135,7 @@ export default function Hero() {
             className="font-bold tracking-tight leading-[0.92] text-white mb-6"
             style={{ fontSize: "clamp(32px, 7vw, 52px)" }}
           >
-            <AnimatedTitle />
+            <AnimatedTitle lines={t.hero.titleLines} />
           </h1>
 
           <motion.div className="flex flex-wrap gap-3 mb-5" {...fadeUp(0.3)}>
@@ -144,7 +146,7 @@ export default function Hero() {
               whileHover={reduced ? {} : { scale: 1.05, boxShadow: "0 0 28px rgba(192,57,43,0.55)" }}
               whileTap={reduced ? {} : { scale: 0.97 }}
             >
-              Voir mes projets
+              {t.hero.cta_projects}
             </motion.a>
             <div className="relative">
               {!reduced && <>
@@ -155,7 +157,7 @@ export default function Hero() {
                 href="#contact"
                 className="relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white border border-white/30 hover:border-white/70 hover:bg-white/8 transition-all duration-300 group"
               >
-                Me contacter
+                {t.hero.cta_contact}
                 <svg
                   className="transition-transform duration-300 group-hover:translate-x-1"
                   width="13" height="13" viewBox="0 0 24 24" fill="none"
@@ -175,7 +177,7 @@ export default function Hero() {
             <span aria-hidden style={{ display: "inline-block" }}>
               <GlobeSpinner size={25} />
             </span>
-            Disponible pour freelance · Basé à Cotonou, Bénin
+            {t.hero.availability}
           </motion.p>
         </div>
 
@@ -185,14 +187,14 @@ export default function Hero() {
           {...fadeUp(0.5)}
         >
           <span>
-            <span className="tabular-nums">{reduced ? 5 : count5}</span>+ Projets
+            <span className="tabular-nums">{reduced ? 5 : count5}</span>+ {t.hero.stat_projects}
           </span>
           <span className="w-1 h-1 rounded-full bg-white/20" />
           <span>
-            <span className="tabular-nums">{reduced ? 2 : count2}</span>+ Ans d&apos;expérience
+            <span className="tabular-nums">{reduced ? 2 : count2}</span>+ {t.hero.stat_experience}
           </span>
           <span className="w-1 h-1 rounded-full bg-white/20" />
-          <span>Full Stack</span>
+          <span>{t.hero.stat_stack}</span>
         </motion.div>
       </div>
 

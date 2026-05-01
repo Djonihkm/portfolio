@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
+import { useLanguage } from "../context/LanguageContext";
 
 const contacts = [
   {
@@ -80,6 +81,7 @@ const ease = [0.22, 1, 0.36, 1] as const;
 export default function ContactSection() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
+  const { t } = useLanguage();
 
   const [form, setForm] = useState({
     name: "",
@@ -154,7 +156,7 @@ export default function ContactSection() {
                 : {}
             }
           >
-            Travaillons ensemble.
+            {t.contact.marquee}
           </motion.h2>
         </motion.div>
 
@@ -168,7 +170,7 @@ export default function ContactSection() {
               transition={{ duration: 0.6, ease, delay: 0.1 }}
               className="text-[11px] tracking-[0.25em] uppercase text-zinc-600 mb-8"
             >
-              Contact
+              {t.contact.left_label}
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 14 }}
@@ -177,9 +179,7 @@ export default function ContactSection() {
               className="text-sm text-zinc-900 leading-relaxed mb-10 max-w-xs"
               style={{ fontWeight: 300 }}
             >
-              Un projet en tête ? Je suis disponible pour de nouvelles
-              collaborations. Chaque projet est traité avec rigueur et
-              discrétion.
+              {t.contact.description}
             </motion.p>
 
             <div className="flex flex-col gap-4">
@@ -250,7 +250,7 @@ export default function ContactSection() {
               transition={{ duration: 0.6, ease, delay: 0.1 }}
               className="text-[11px] tracking-[0.25em] uppercase text-zinc-600 mb-8"
             >
-              Vous pouvez m'écrire directement.
+              {t.contact.right_label}
             </motion.p>
             {status === "success" ? (
               <motion.div
@@ -273,19 +273,19 @@ export default function ContactSection() {
                   </svg>
                 </div>
                 <h3 className="text-xl font-bold text-zinc-900">
-                  Message envoyé !
+                  {t.contact.success_title}
                 </h3>
                 <p
                   className="text-sm text-zinc-500 max-w-xs"
                   style={{ fontWeight: 300 }}
                 >
-                  Je vous répondrai dans les plus brefs délais.
+                  {t.contact.success_desc}
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
                   className="cursor-pointer text-[11px] tracking-widest uppercase text-zinc-400 hover:text-zinc-900 transition-colors mt-2"
                 >
-                  Envoyer un autre message
+                  {t.contact.send_another}
                 </button>
               </motion.div>
             ) : (
@@ -293,7 +293,7 @@ export default function ContactSection() {
                 {/* Préférence de contact */}
                 <div>
                   <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
-                    Comment vous recontacter ?
+                    {t.contact.preference_label}
                   </label>
                   <div className="flex gap-2">
                     {(["email", "phone"] as const).map((p) => (
@@ -315,7 +315,7 @@ export default function ContactSection() {
                               }
                         }
                       >
-                        {p === "email" ? "Par email" : "Par téléphone"}
+                        {p === "email" ? t.contact.btn_email : t.contact.btn_phone}
                       </button>
                     ))}
                   </div>
@@ -324,12 +324,12 @@ export default function ContactSection() {
                 {/* Nom — toujours requis */}
                 <div className="form-field">
                   <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
-                    Nom <span className="text-[var(--accent)]">*</span>
+                    {t.contact.name_label} <span className="text-[var(--accent)]">*</span>
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="Votre nom"
+                    placeholder={t.contact.name_placeholder}
                     value={form.name}
                     onChange={(e) =>
                       setForm((f) => ({ ...f, name: e.target.value }))
@@ -350,12 +350,12 @@ export default function ContactSection() {
                 >
                   <div className="form-field pt-0.5">
                     <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
-                      Email <span className="text-[var(--accent)]">*</span>
+                      {t.contact.email_label} <span className="text-[var(--accent)]">*</span>
                     </label>
                     <input
                       type="email"
                       required={preference === "email"}
-                      placeholder="votre@email.com"
+                      placeholder={t.contact.email_placeholder}
                       value={form.email}
                       onChange={(e) =>
                         setForm((f) => ({ ...f, email: e.target.value }))
@@ -377,12 +377,12 @@ export default function ContactSection() {
                 >
                   <div className="form-field pt-0.5">
                     <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
-                      Téléphone <span className="text-[var(--accent)]">*</span>
+                      {t.contact.phone_label} <span className="text-[var(--accent)]">*</span>
                     </label>
                     <input
                       type="tel"
                       required={preference === "phone"}
-                      placeholder="+229 XX XX XX XX"
+                      placeholder={t.contact.phone_placeholder}
                       value={form.phone}
                       onChange={(e) =>
                         setForm((f) => ({ ...f, phone: e.target.value }))
@@ -395,7 +395,7 @@ export default function ContactSection() {
                 {/* Message — toujours requis */}
                 <div className="form-field">
                   <label className="block text-[10px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
-                    Message <span className="text-[var(--accent)]">*</span>
+                    {t.contact.message_label} <span className="text-[var(--accent)]">*</span>
                   </label>
                   <textarea
                     required
