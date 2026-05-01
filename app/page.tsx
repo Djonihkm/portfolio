@@ -1,6 +1,7 @@
 import Hero from "./components/Hero";
 import ImageModal from "./components/ImageModal";
 import WorkApproach from "./components/WorkApproach";
+import Services from "./components/Services";
 import Testimonials from "./components/Testimonials";
 import ContactSection from "./components/ContactSection";
 
@@ -80,18 +81,6 @@ const projects = [
   },
 ];
 
-const stack = [
-  "Next.js",
-  "React",
-  "TypeScript",
-  "Node.js",
-  "PostgreSQL",
-  "MySQL",
-  "MongoDB",
-  "Prisma",
-  "Tailwind CSS",
-  "REST API",
-];
 
 export default function Home() {
   return (
@@ -124,12 +113,12 @@ export default function Home() {
               className="group grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-0 py-5 md:max-h-113.5 md:overflow-hidden"
             >
               {/* Visuel gauche */}
-              <div className="relative aspect-[16/10] bg-zinc-950 overflow-hidden">
+              <div className="relative aspect-16/10 bg-zinc-950 overflow-hidden">
                 {p.image ? (
                   <ImageModal src={p.image} alt={p.title} />
                 ) : (
                   <>
-                    <span className="absolute right-5 bottom-3 font-mono text-[90px] font-bold text-white/[0.04] leading-none select-none">
+                    <span className="absolute right-5 bottom-3 font-mono text-[90px] font-bold text-white/4 leading-none select-none">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <div
@@ -167,7 +156,7 @@ export default function Home() {
 
                   {/* Titre */}
                   <h3
-                    className="font-bold tracking-tight text-zinc-900 mb-4 leading-tight group-hover:text-[var(--accent)] transition-colors duration-300"
+                    className="font-bold tracking-tight text-zinc-900 mb-4 leading-tight group-hover:text-(--accent) transition-colors duration-300"
                     style={{ fontSize: "clamp(1.25rem, 2vw, 1.75rem)" }}
                   >
                     {p.title}
@@ -252,6 +241,7 @@ export default function Home() {
       </section>
 
       <WorkApproach />
+      <Services />
       <Testimonials />
       <ContactSection />
     </main>

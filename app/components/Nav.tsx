@@ -13,9 +13,10 @@ export default function Nav() {
   }, []);
 
   const links = [
-    { href: "#work",    label: "Projets" },
-    { href: "#about",   label: "Approche" },
-    { href: "#contact", label: "Contact" },
+    { href: "#work",     label: "Projets" },
+    { href: "#about",    label: "Approche" },
+    { href: "#services", label: "Services" },
+    { href: "#contact",  label: "Contact" },
   ];
 
   return (
