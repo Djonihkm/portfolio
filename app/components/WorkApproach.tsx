@@ -1,33 +1,33 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, type CSSProperties } from "react";
 import { motion, useInView } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 
 const pillarColors = ["#3b82f6", "#10b981", "#f59e0b", "#8b5cf6", "#6366f1", "#C0392B"];
 
 const pillarIcons = [
-  (
+  () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M3 18v-6a9 9 0 0 1 18 0v6" />
       <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3z" />
       <path d="M3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z" />
     </svg>
   ),
-  (
+  () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
       <line x1="9" y1="10" x2="15" y2="10" />
       <line x1="9" y1="14" x2="13" y2="14" />
     </svg>
   ),
-  (
+  () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="12" cy="12" r="10" />
       <polyline points="12 6 12 12 16 14" />
     </svg>
   ),
-  (
+  () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="17 1 21 5 17 9" />
       <path d="M3 11V9a4 4 0 0 1 4-4h14" />
@@ -35,13 +35,13 @@ const pillarIcons = [
       <path d="M21 13v2a4 4 0 0 1-4 4H3" />
     </svg>
   ),
-  (
+  () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       <polyline points="9 12 11 14 15 10" />
     </svg>
   ),
-  (
+  () => (
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
       <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
     </svg>
@@ -60,19 +60,19 @@ export default function WorkApproach() {
     title: p.title,
     description: p.description,
     color: pillarColors[i],
-    icon: pillarIcons[i],
+    icon: pillarIcons[i](),
   }));
 
   return (
     <section
       ref={ref}
       id="about"
-      className="border-t border-zinc-100 py-24 flex flex-col items-center px-6 md:px-10"
+      className="border-t border-zinc-100 py-14 flex flex-col items-center px-6 md:px-10"
     >
       <div className="w-full max-w-5xl">
 
         {/* Header */}
-        <div className="flex items-end justify-between mb-14">
+        <div className="flex items-end justify-between mb-8">
           <div>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -118,7 +118,7 @@ export default function WorkApproach() {
                 </span>
                 <span
                   className="transition-colors duration-300"
-                  style={{ color: p.color } as React.CSSProperties}
+                  style={{ color: p.color } as CSSProperties}
                 >
                   {p.icon}
                 </span>

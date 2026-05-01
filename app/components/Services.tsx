@@ -58,12 +58,12 @@ export default function Services() {
     <section
       ref={ref}
       id="services"
-      className="border-t border-zinc-100 py-24 flex flex-col items-center px-6 md:px-10"
+      className="border-t border-zinc-100 py-14 flex flex-col items-center px-6 md:px-10"
     >
       <div className="w-full max-w-5xl">
 
         {/* ── Header ── */}
-        <div className="flex items-end justify-between mb-14">
+        <div className="flex items-end justify-between mb-8">
           <div>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
@@ -93,7 +93,7 @@ export default function Services() {
         </div>
 
         {/* ── Offres ── */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-24">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
           {offers.map((o, i) => (
             <motion.div
               key={o.name}
@@ -192,7 +192,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, ease, delay: 0.37 }}
-          className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 mb-12"
+          className="text-2xl md:text-3xl font-bold tracking-tight text-zinc-900 mb-8"
         >
           {t.services.process_title}
         </motion.h3>

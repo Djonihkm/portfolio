@@ -116,7 +116,7 @@ export default function ContactSection() {
     <section
       ref={ref}
       id="contact"
-      className="flex flex-col items-center px-6 md:px-10 py-20"
+      className="flex flex-col items-center px-6 md:px-10"
     >
       <div className="w-full max-w-5xl border border-zinc-100 rounded-2xl p-8 md:p-12">
         {/* Titre — entre de gauche, s'arrête au centre avec vibration de parking */}

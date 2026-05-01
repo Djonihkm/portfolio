@@ -22,7 +22,7 @@ export default function Testimonials() {
   return (
     <section
       ref={ref}
-      className="border-t border-zinc-100 py-24 flex flex-col items-center px-6 md:px-10"
+      className="border-t border-zinc-100 py-15 flex flex-col items-center px-6 md:px-10"
     >
       <div className="w-full max-w-5xl">
 

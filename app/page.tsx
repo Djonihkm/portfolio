@@ -93,9 +93,9 @@ export default function Home() {
       <Hero />
 
       {/* ── PROJETS ── */}
-      <section id="work" className="border-t py-24 flex flex-col items-center">
+      <section id="work" className="border-t py-14 flex flex-col items-center">
         <div className="w-full max-w-5xl px-6 md:px-10">
-          <div className="flex items-end justify-between mb-10">
+          <div className="flex items-end justify-between mb-6">
             <div>
               <p className="text-[11px] tracking-[0.25em] uppercase text-zinc-500 mb-3">
                 {t.projects.label}
