@@ -50,17 +50,6 @@ const projects = [
     image: "/images/cheztoi/cheztoi.png",
   },
   {
-    id: 3,
-    title: "EMPPH",
-    description:
-      "Plateforme complète pour école primaire : élèves, notes, emplois du temps.",
-    tech: ["Laravel", "MySQL", "Bootstrap CSS"],
-    link: "https://empph.hkmhub.com/",
-    year: "2025",
-    month: "Décembre",
-    image: "/images/empph/empph.png",
-  },
-  {
     id: 4,
     title: "Football Club Manager",
     description:
@@ -72,18 +61,29 @@ const projects = [
     image: "/images/olympic/olympic.png",
   },
   {
-    id: 5,
-    title: "Commando",
+    id: 3,
+    title: "EMPPH",
     description:
-      "Application de commande en ligne pour restaurant : menu, interface admin, interface client.",
-    tech: ["React", "Laravel", "MySQL"],
-    link: "https://commando.hkmhub.com/",
+      "Plateforme complète pour école primaire : élèves, notes, emplois du temps.",
+    tech: ["Laravel", "MySQL", "Bootstrap CSS"],
+    link: "https://empph.hkmhub.com/",
     year: "2025",
-    month: "Mai",
-    image: "/images/commando/commando.png",
+    month: "Décembre",
+    image: "/images/empph/empph.png",
   },
-];
 
+  // {
+  //   id: 5,
+  //   title: "Commando",
+  //   description:
+  //     "Application de commande en ligne pour restaurant : menu, interface admin, interface client.",
+  //   tech: ["React", "Laravel", "MySQL"],
+  //   link: "https://commando.hkmhub.com/",
+  //   year: "2025",
+  //   month: "Mai",
+  //   image: "/images/commando/commando.png",
+  // },
+];
 
 export default function Home() {
   const { t } = useLanguage();
