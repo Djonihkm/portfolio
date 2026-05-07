@@ -30,6 +30,7 @@ export const fr = {
       3: "Plateforme complète pour école primaire : élèves, notes, emplois du temps.",
       4: "Gestion d'un club de football : joueurs, matchs, statistiques, finances.",
       5: "Application de commande en ligne pour restaurant : menu, interface admin, interface client.",
+      6: "Plateforme de vente de produits de santé.",
     } as Record<number, string>,
   },
   approach: {

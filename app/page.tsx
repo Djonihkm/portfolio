@@ -29,7 +29,7 @@ const techColors: Record<string, { bg: string; text: string; glow: string }> = {
 const projects = [
   {
     id: 1,
-    title: "INMes-TRACK",
+    title: "INMeS-TRACK",
     description:
       "Suivi en temps réel de la salle informatique de l'INMes — équipements, incidents, rapports.",
     tech: ["Next.js", "TypeScript", "Prisma"],
@@ -37,6 +37,17 @@ const projects = [
     year: "2026",
     month: "Mars.",
     image: "/images/inmes/inmes.png",
+  },
+  {
+    id: 6,
+    title: "Confio",
+    description:
+      "Plateforme de vente de produits de santés",
+    tech: ["Next.js", "TypeScript", "Prisma"],
+    link: "https://confio-gamma.vercel.app/",
+    year: "2026",
+    month: "Mai.",
+    image: "/images/confio/confio.png",
   },
   {
     id: 2,

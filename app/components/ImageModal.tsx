@@ -25,7 +25,7 @@ export default function ImageModal({ src, alt }: { src: string; alt: string }) {
         className="group relative w-full h-full cursor-zoom-in"
         onClick={() => setOpen(true)}
       >
-        <Image src={src} alt={alt} fill className="object-cover object-top" />
+        <Image src={src} alt={alt} fill sizes="(max-width: 768px) 100vw, 60vw" className="object-cover object-top" />
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300 flex items-center justify-center">
           <span className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-[11px] font-semibold tracking-widest uppercase">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">

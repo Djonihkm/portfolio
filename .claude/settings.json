@@ -5,7 +5,12 @@
       "WebFetch(domain:www.victorbellot.com)",
       "WebFetch(domain:www.victorbellot.fr)",
       "Bash(npm install *)",
-      "Bash(npx tsc *)"
+      "Bash(npx tsc *)",
+      "Bash(node -e \"const p = require\\('./package.json'\\); console.log\\('next:', p.dependencies.next\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); console.log\\(fs.existsSync\\('d:/app/portfolio/app/icon.tsx'\\)\\)\")",
+      "Bash(node -e \"require\\('canvas'\\)\")",
+      "Bash(node -e \"require\\('sharp'\\)\")",
+      "Bash(node -e ' *)"
     ]
   }
 }

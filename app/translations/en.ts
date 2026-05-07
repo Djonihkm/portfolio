@@ -32,6 +32,7 @@ export const en: Translations = {
       3: "Complete platform for a primary school: students, grades, timetables.",
       4: "Football club management: players, matches, statistics, finances.",
       5: "Online ordering app for a restaurant: menu, admin interface, client interface.",
+      6: "Health products e-commerce platform.",
     },
   },
   approach: {
