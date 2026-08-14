@@ -24,9 +24,21 @@ const techColors: Record<string, { bg: string; text: string; glow: string }> = {
   Express: { bg: "#404D59", text: "#ffffff", glow: "rgba(64,77,89,0.35)" },
   MongoDB: { bg: "#4DB33D", text: "#ffffff", glow: "rgba(77,179,61,0.4)" },
   Stripe: { bg: "#6772E5", text: "#ffffff", glow: "rgba(103,114,229,0.4)" },
+  Neon: { bg: "#00E5BF", text: "#0A2A25", glow: "rgba(0,229,191,0.4)" },
 };
 
 const projects = [
+  {
+    id: 7,
+    title: "Komuniti",
+    description:
+      "Communauté qui connecte entrepreneurs africains, investisseurs et curieux, soumission de projets, feedback réel et mise en relation.",
+    tech: ["Next.js", "PostgreSQL", "Neon"],
+    link: "https://www.komuniti.online/",
+    year: "2026",
+    month: "Août.",
+    image: "/images/komuniti/komuniti.png",
+  },
   {
     id: 1,
     title: "INMeS-TRACK",

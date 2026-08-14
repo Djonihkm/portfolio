@@ -33,6 +33,7 @@ export const en: Translations = {
       4: "Football club management: players, matches, statistics, finances.",
       5: "Online ordering app for a restaurant: menu, admin interface, client interface.",
       6: "Health products e-commerce platform.",
+      7: "Community connecting African entrepreneurs, investors and curious minds, with project submissions, real feedback and networking.",
     },
   },
   approach: {

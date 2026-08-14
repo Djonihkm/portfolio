@@ -31,6 +31,7 @@ export const fr = {
       4: "Gestion d'un club de football : joueurs, matchs, statistiques, finances.",
       5: "Application de commande en ligne pour restaurant : menu, interface admin, interface client.",
       6: "Plateforme de vente de produits de santé.",
+      7: "Communauté qui connecte entrepreneurs africains, investisseurs et curieux, soumission de projets, feedback réel et mise en relation.",
     } as Record<number, string>,
   },
   approach: {
