@@ -121,7 +121,7 @@ export default function Hero() {
                 hidden:  { opacity: 0, y: 14 },
                 visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
               }}
-              className="text-[11px] font-medium tracking-widest uppercase border border-white/20 text-white/60 px-3 py-1.5 rounded-full"
+              className="text-xs font-medium tracking-widest uppercase border border-white/20 text-white/60 px-3 py-1.5 rounded-full"
               style={{ background: "rgba(255,255,255,0.05)" }}
             >
               {t}
@@ -171,7 +171,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.p
-            className="text-[11px] text-white/35 tracking-wide flex items-center gap-1.5"
+            className="text-sm text-white/45 tracking-wide flex items-center gap-1.5"
             {...fadeUp(0.4)}
           >
             <span aria-hidden style={{ display: "inline-block" }}>
@@ -183,7 +183,7 @@ export default function Hero() {
 
         {/* Stats */}
         <motion.div
-          className="flex items-center gap-5 text-[11px] text-white/30 tracking-wide"
+          className="flex items-center gap-5 text-[13px] text-white/40 tracking-wide"
           {...fadeUp(0.5)}
         >
           <span>

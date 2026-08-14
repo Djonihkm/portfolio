@@ -78,7 +78,7 @@ export default function WorkApproach() {
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, ease }}
-              className="text-[11px] tracking-[0.25em] uppercase text-zinc-500 mb-3"
+              className="text-[13px] tracking-[0.25em] uppercase text-zinc-500 mb-3"
             >
               {t.approach.label}
             </motion.p>
@@ -95,7 +95,7 @@ export default function WorkApproach() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xs text-zinc-300 hidden md:block"
+            className="text-sm text-zinc-300 hidden md:block"
           >
             {String(pillars.length).padStart(2, "0")} {t.approach.count}
           </motion.span>
@@ -131,8 +131,8 @@ export default function WorkApproach() {
 
               {/* Description */}
               <p
-                className="text-sm text-zinc-700 leading-relaxed group-hover:text-zinc-400 transition-colors duration-300 mt-auto"
-                style={{ fontWeight: 300 }}
+                className="text-base text-zinc-700 leading-relaxed group-hover:text-zinc-400 transition-colors duration-300 mt-auto"
+                style={{ fontWeight: 400 }}
               >
                 {p.description}
               </p>

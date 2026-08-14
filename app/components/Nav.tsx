@@ -25,7 +25,7 @@ export default function Nav() {
     <button
       onClick={toggle}
       aria-label="Switch language"
-      className={`cursor-pointer text-[11px] font-semibold tracking-widest transition-colors duration-300 ${
+      className={`cursor-pointer text-[13px] font-semibold tracking-widest transition-colors duration-300 ${
         scrolled ? "text-zinc-400 hover:text-zinc-900" : "text-white/50 hover:text-white"
       }`}
     >
@@ -39,7 +39,7 @@ export default function Nav() {
     <button
       onClick={toggle}
       aria-label="Switch language"
-      className="cursor-pointer text-[11px] font-semibold tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+      className="cursor-pointer text-[13px] font-semibold tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
     >
       <span style={{ color: lang === "fr" ? "var(--accent)" : undefined }}>🇫🇷 FR</span>
       <span className="mx-1 opacity-30">·</span>
@@ -101,7 +101,7 @@ export default function Nav() {
               key={l.href}
               href={l.href}
               onClick={() => setMenuOpen(false)}
-              className="text-[11px] tracking-[0.18em] uppercase text-zinc-500 hover:text-zinc-900 transition-colors"
+              className="text-sm tracking-[0.18em] uppercase text-zinc-500 hover:text-zinc-900 transition-colors"
             >
               {l.label}
             </a>
