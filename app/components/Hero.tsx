@@ -84,45 +84,44 @@ export default function Hero() {
 
   const ease = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
-  const fadeUp = (delay = 0) =>
-    reduced ? {} : {
-      initial: { opacity: 0, y: 20 },
-      animate: { opacity: 1, y: 0 },
-      transition: { duration: 0.75, ease, delay },
-    };
+  const fadeUp = (delay = 0) => ({
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: reduced ? { duration: 0 } : { duration: 0.75, ease, delay },
+  });
 
-  const photoAnim = reduced ? {} : {
+  const photoAnim = {
     initial: { opacity: 0, scale: 0.95 },
     animate: { opacity: 1, scale: 1 },
-    transition: { duration: 1.1, ease, delay: 0.2 },
+    transition: reduced ? { duration: 0 } : { duration: 1.1, ease, delay: 0.2 },
   };
 
   return (
     <section
       ref={sectionRef}
       id="home"
-      className="relative bg-[#0f0f0f] lg:h-screen flex flex-col lg:grid lg:grid-cols-2 pt-16"
+      className="relative bg-[#0f0f0f] md:min-h-screen lg:h-screen flex flex-col lg:grid lg:grid-cols-2 pt-16"
     >
       {!reduced && <CursorSpotlight sectionRef={sectionRef} />}
 
       {/* ── Contenu ── */}
-      <div className="relative z-10 flex flex-col justify-between px-6 md:px-14 lg:px-20 py-16 md:py-16 gap-8 md:gap-0">
+      <div className="relative z-10 flex flex-col justify-between px-6 md:px-14 lg:px-20 py-16 md:py-16 gap-8 md:gap-0 md:flex-1 md:max-w-2xl md:mx-auto lg:max-w-none lg:mx-0">
 
         {/* Pills */}
         <motion.div
           className="flex flex-wrap gap-2"
           initial="hidden"
           animate="visible"
-          variants={reduced ? {} : { visible: { transition: { staggerChildren: 0.09 } } }}
+          variants={{ visible: { transition: { staggerChildren: reduced ? 0 : 0.09 } } }}
         >
           {["Next.js", "TypeScript", "Node.js", "Laravel", "Postgresql"].map((t) => (
             <motion.span
               key={t}
-              variants={reduced ? {} : {
+              variants={{
                 hidden:  { opacity: 0, y: 14 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] } },
+                visible: { opacity: 1, y: 0, transition: { duration: reduced ? 0 : 0.5, ease: [0.22, 1, 0.36, 1] } },
               }}
-              className="text-xs font-medium tracking-widest uppercase border border-white/20 text-white/60 px-3 py-1.5 rounded-full"
+              className="text-[13px] font-medium tracking-widest uppercase border border-white/20 text-white/60 px-3 py-1.5 rounded-full"
               style={{ background: "rgba(255,255,255,0.05)" }}
             >
               {t}

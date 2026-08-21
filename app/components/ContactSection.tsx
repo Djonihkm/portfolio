@@ -192,7 +192,7 @@ export default function ContactSection() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, ease, delay: 0.1 }}
-              className="text-[13px] tracking-[0.25em] uppercase text-zinc-600 mb-8"
+              className="text-[15px] tracking-[0.25em] uppercase text-zinc-600 mb-8"
             >
               {t.contact.left_label}
             </motion.p>
@@ -233,7 +233,7 @@ export default function ContactSection() {
 
                   {/* Texte */}
                   <div className="min-w-0">
-                    <p className="text-xs tracking-[0.2em] uppercase text-zinc-400 mb-0.5">
+                    <p className="text-[13px] tracking-[0.2em] uppercase text-zinc-400 mb-0.5">
                       {c.label}
                     </p>
                     <p className="text-base font-medium text-zinc-800 truncate group-hover:text-zinc-900 transition-colors">
@@ -272,7 +272,7 @@ export default function ContactSection() {
               initial={{ opacity: 0 }}
               animate={inView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, ease, delay: 0.1 }}
-              className="text-[13px] tracking-[0.25em] uppercase text-zinc-600 mb-8"
+              className="text-[15px] tracking-[0.25em] uppercase text-zinc-600 mb-8"
             >
               {t.contact.right_label}
             </motion.p>
@@ -307,7 +307,7 @@ export default function ContactSection() {
                 </p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="cursor-pointer text-[13px] tracking-widest uppercase text-zinc-400 hover:text-zinc-900 transition-colors mt-2"
+                  className="cursor-pointer text-[15px] tracking-widest uppercase text-zinc-400 hover:text-zinc-900 transition-colors mt-2"
                 >
                   {t.contact.send_another}
                 </button>
@@ -316,7 +316,7 @@ export default function ContactSection() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-5">
                 {/* Préférence de contact */}
                 <div>
-                  <label className="block text-xs tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
+                  <label className="block text-[13px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
                     {t.contact.preference_label}
                   </label>
                   <div className="flex gap-2">
@@ -325,7 +325,7 @@ export default function ContactSection() {
                         key={p}
                         type="button"
                         onClick={() => setPreference(p)}
-                        className="flex-1 py-2.5 rounded-xl text-[13px] font-semibold tracking-widest uppercase transition-all duration-200 cursor-pointer"
+                        className="flex-1 py-2.5 rounded-xl text-[15px] font-semibold tracking-widest uppercase transition-all duration-200 cursor-pointer"
                         style={
                           preference === p
                             ? {
@@ -347,7 +347,7 @@ export default function ContactSection() {
 
                 {/* Nom — toujours requis */}
                 <div className="form-field">
-                  <label className="block text-xs tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
+                  <label className="block text-[13px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
                     {t.contact.name_label} <span className="text-[var(--accent)]">*</span>
                   </label>
                   <input
@@ -373,7 +373,7 @@ export default function ContactSection() {
                   className="overflow-hidden"
                 >
                   <div className="form-field pt-0.5">
-                    <label className="block text-xs tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
+                    <label className="block text-[13px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
                       {t.contact.email_label} <span className="text-[var(--accent)]">*</span>
                     </label>
                     <input
@@ -400,7 +400,7 @@ export default function ContactSection() {
                   className="overflow-hidden"
                 >
                   <div className="form-field pt-0.5">
-                    <label className="block text-xs tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
+                    <label className="block text-[13px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
                       {t.contact.phone_label} <span className="text-[var(--accent)]">*</span>
                     </label>
                     <input
@@ -418,7 +418,7 @@ export default function ContactSection() {
 
                 {/* Message — toujours requis */}
                 <div className="form-field">
-                  <label className="block text-xs tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
+                  <label className="block text-[13px] tracking-[0.2em] uppercase text-zinc-700 font-semibold mb-2">
                     {t.contact.message_label} <span className="text-[var(--accent)]">*</span>
                   </label>
                   <textarea
@@ -434,7 +434,7 @@ export default function ContactSection() {
                 </div>
 
                 {/* Légende champs obligatoires */}
-                <p className="text-xs text-zinc-400 -mt-1">
+                <p className="text-[13px] text-zinc-400 -mt-1">
                   <span className="text-[var(--accent)]">*</span> Champs
                   obligatoires
                 </p>

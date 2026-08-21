@@ -120,14 +120,14 @@ export default function Home() {
         <div className="w-full max-w-5xl px-6 md:px-10">
           <div className="flex items-end justify-between mb-6">
             <div>
-              <p className="text-[13px] tracking-[0.25em] uppercase text-zinc-500 mb-3">
+              <p className="text-[15px] tracking-[0.25em] uppercase text-zinc-500 mb-3">
                 {t.projects.label}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight text-zinc-900">
                 {t.projects.title}
               </h2>
             </div>
-            <span className="text-sm text-zinc-900 hidden md:block">
+            <span className="text-[15px] text-zinc-900 hidden md:block">
               {String(projects.length).padStart(2, "0")} {t.projects.label}
             </span>
           </div>
@@ -172,7 +172,7 @@ export default function Home() {
               <div className="flex flex-col justify-between items-center border border-zinc-100  p-6">
                 <div>
                   {/* Meta */}
-                  <div className="flex items-center gap-3 text-[13px] text-zinc-400 mb-5 tracking-wide">
+                  <div className="flex items-center gap-3 text-[15px] text-zinc-400 mb-5 tracking-wide">
                     <span className="font-mono">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -212,7 +212,7 @@ export default function Home() {
                       return (
                         <span
                           key={t}
-                          className="tech-pill whitespace-nowrap text-xs tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
+                          className="tech-pill whitespace-nowrap text-[13px] tracking-[0.15em] uppercase px-2 py-0.5 rounded-full"
                           style={
                             {
                               background: c.bg,
@@ -231,7 +231,7 @@ export default function Home() {
                       href={p.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full text-[13px] font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-lg w-full sm:w-auto sm:ml-4 sm:shrink-0"
+                      className="inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full text-[15px] font-semibold text-white transition-all duration-200 hover:scale-105 hover:shadow-lg w-full sm:w-auto sm:ml-4 sm:shrink-0"
                       style={{
                         background: "var(--accent)",
                         boxShadow: "0 2px 10px rgba(192,57,43,0.35)",
@@ -241,7 +241,7 @@ export default function Home() {
                     </a>
                   ) : (
                     <span
-                      className="priv-badge inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-semibold tracking-widest uppercase text-slate-200 select-none w-full sm:w-auto sm:ml-4 sm:shrink-0"
+                      className="priv-badge inline-flex items-center justify-center gap-1.5 px-3.5 py-1.5 rounded-full text-[13px] font-semibold tracking-widest uppercase text-slate-200 select-none w-full sm:w-auto sm:ml-4 sm:shrink-0"
                       style={{ background: "#1e293b" }}
                     >
                       <svg

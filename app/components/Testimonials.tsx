@@ -33,7 +33,7 @@ export default function Testimonials() {
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, ease }}
-              className="text-[13px] tracking-[0.25em] uppercase text-zinc-500 mb-3"
+              className="text-[15px] tracking-[0.25em] uppercase text-zinc-500 mb-3"
             >
               {t.testimonials.label}
             </motion.p>
@@ -50,7 +50,7 @@ export default function Testimonials() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-sm text-zinc-300 hidden md:block"
+            className="text-[15px] text-zinc-300 hidden md:block"
           >
             {String(testimonials.length).padStart(2, "0")} {t.testimonials.count}
           </motion.span>
@@ -95,7 +95,7 @@ export default function Testimonials() {
                   <p className="text-base font-semibold text-zinc-900 truncate">
                     {item.name}
                   </p>
-                  <p className="text-[13px] text-zinc-400 truncate">
+                  <p className="text-[15px] text-zinc-400 truncate">
                     {item.role} &middot; {item.company}
                   </p>
                 </div>

@@ -69,7 +69,7 @@ export default function Services() {
               initial={{ opacity: 0, y: 10 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, ease }}
-              className="text-[13px] tracking-[0.25em] uppercase text-zinc-500 mb-3"
+              className="text-[15px] tracking-[0.25em] uppercase text-zinc-500 mb-3"
             >
               {t.services.label}
             </motion.p>
@@ -86,7 +86,7 @@ export default function Services() {
             initial={{ opacity: 0 }}
             animate={inView ? { opacity: 1 } : {}}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-sm text-zinc-400 hidden md:block tracking-wide"
+            className="text-[15px] text-zinc-400 hidden md:block tracking-wide"
           >
             {t.services.currency_note}
           </motion.span>
@@ -115,7 +115,7 @@ export default function Services() {
               {o.highlight && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 flex items-center justify-center">
                   <span className="absolute inline-flex h-full w-full rounded-full bg-[var(--accent)] opacity-25 animate-ping" />
-                  <span className="relative text-xs font-bold tracking-[0.2em] uppercase bg-[var(--accent)] text-white px-3 py-1 rounded-full whitespace-nowrap">
+                  <span className="relative text-[13px] font-bold tracking-[0.2em] uppercase bg-[var(--accent)] text-white px-3 py-1 rounded-full whitespace-nowrap">
                     {t.services.popular}
                   </span>
                 </div>
@@ -123,13 +123,13 @@ export default function Services() {
 
               {/* Nom + prix */}
               <div className="mb-6">
-                <p className={`text-[13px] tracking-[0.2em] uppercase font-semibold mb-3 ${o.highlight ? "text-zinc-400" : "text-zinc-400"}`}>
+                <p className={`text-[15px] tracking-[0.2em] uppercase font-semibold mb-3 ${o.highlight ? "text-zinc-400" : "text-zinc-400"}`}>
                   {o.name}
                 </p>
                 <div className="flex items-end gap-1 mb-3">
                   {o.price ? (
                     <>
-                      <span className={`text-[13px] font-medium ${o.highlight ? "text-zinc-400" : "text-zinc-400"}`}>{t.services.from}</span>
+                      <span className={`text-[15px] font-medium ${o.highlight ? "text-zinc-400" : "text-zinc-400"}`}>{t.services.from}</span>
                       <span className={`text-3xl font-bold tracking-tight ${o.highlight ? "text-white" : "text-zinc-900"}`}>
                         {o.price} €
                       </span>
@@ -184,7 +184,7 @@ export default function Services() {
           initial={{ opacity: 0, y: 10 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, ease, delay: 0.3 }}
-          className="text-[13px] tracking-[0.25em] uppercase text-zinc-500 mb-4"
+          className="text-[15px] tracking-[0.25em] uppercase text-zinc-500 mb-4"
         >
           {t.services.process_label}
         </motion.p>

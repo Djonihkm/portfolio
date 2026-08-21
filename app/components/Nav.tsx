@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Nav() {
@@ -25,7 +26,7 @@ export default function Nav() {
     <button
       onClick={toggle}
       aria-label="Switch language"
-      className={`cursor-pointer text-[13px] font-semibold tracking-widest transition-colors duration-300 ${
+      className={`cursor-pointer text-[15px] font-semibold tracking-widest transition-colors duration-300 ${
         scrolled ? "text-zinc-400 hover:text-zinc-900" : "text-white/50 hover:text-white"
       }`}
     >
@@ -39,7 +40,7 @@ export default function Nav() {
     <button
       onClick={toggle}
       aria-label="Switch language"
-      className="cursor-pointer text-[13px] font-semibold tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
+      className="cursor-pointer text-[15px] font-semibold tracking-widest text-zinc-500 hover:text-zinc-900 transition-colors duration-300"
     >
       <span style={{ color: lang === "fr" ? "var(--accent)" : undefined }}>🇫🇷 FR</span>
       <span className="mx-1 opacity-30">·</span>
@@ -70,7 +71,7 @@ export default function Nav() {
             <li key={l.href}>
               <a
                 href={l.href}
-                className={`nav-link text-[13px] tracking-[0.18em] uppercase transition-colors duration-500 ${scrolled ? "text-zinc-600 hover:text-[#111111]" : "text-white/70 hover:text-white"}`}
+                className={`nav-link text-[15px] tracking-[0.18em] uppercase transition-colors duration-500 ${scrolled ? "text-zinc-600 hover:text-[#111111]" : "text-white/70 hover:text-white"}`}
               >
                 {l.label}
               </a>
@@ -82,7 +83,7 @@ export default function Nav() {
         {/* Mobile — burger only */}
         <div className="lg:hidden flex items-center gap-4">
           <button
-            className="flex flex-col gap-[5px] p-1.5"
+            className="cursor-pointer flex flex-col gap-[5px] p-1.5"
             onClick={() => setMenuOpen((o) => !o)}
             aria-label="Menu"
           >
@@ -94,21 +95,31 @@ export default function Nav() {
       </nav>
 
       {/* Mobile menu */}
-      <div className={`lg:hidden overflow-hidden transition-all duration-300 bg-white ${menuOpen ? "max-h-52 border-b border-zinc-100" : "max-h-0"}`}>
-        <div className="px-6 py-5 flex flex-col gap-5">
-          {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              onClick={() => setMenuOpen(false)}
-              className="text-sm tracking-[0.18em] uppercase text-zinc-500 hover:text-zinc-900 transition-colors"
-            >
-              {l.label}
-            </a>
-          ))}
-          <div className="pt-2 border-t border-zinc-100">{toggleBtnMobile}</div>
-        </div>
-      </div>
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="lg:hidden overflow-hidden bg-white border-b border-zinc-100"
+          >
+            <div className="px-6 py-6 flex flex-col gap-6">
+              {links.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-[15px] tracking-[0.18em] uppercase text-zinc-500 hover:text-zinc-900 transition-colors"
+                >
+                  {l.label}
+                </a>
+              ))}
+              <div className="pt-4 pb-1 border-t border-zinc-100">{toggleBtnMobile}</div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

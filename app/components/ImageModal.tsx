@@ -47,14 +47,14 @@ export default function ImageModal({ src, alt }: { src: string; alt: string }) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[200] flex items-center justify-center p-6"
+            className="cursor-pointer fixed inset-0 z-[200] flex items-center justify-center p-6"
             style={{ background: "rgba(0,0,0,0.88)" }}
             onClick={() => setOpen(false)}
           >
             {/* Fermer */}
             <button
               onClick={() => setOpen(false)}
-              className="absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors duration-200"
+              className="cursor-pointer absolute top-5 right-5 w-9 h-9 rounded-full flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors duration-200"
             >
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="18" y1="6" x2="6" y2="18" />
@@ -68,7 +68,7 @@ export default function ImageModal({ src, alt }: { src: string; alt: string }) {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.92, y: 10 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className="relative rounded-xl overflow-hidden shadow-2xl"
+              className="relative rounded-xl overflow-hidden shadow-2xl cursor-default"
               onClick={(e) => e.stopPropagation()}
             >
               <Image
@@ -87,7 +87,7 @@ export default function ImageModal({ src, alt }: { src: string; alt: string }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="absolute bottom-6 left-1/2 -translate-x-1/2 text-xs text-white/40 tracking-widest uppercase"
+              className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[13px] text-white/40 tracking-widest uppercase"
             >
               Cliquer en dehors ou Escape pour fermer
             </motion.p>
