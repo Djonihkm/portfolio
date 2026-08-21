@@ -1,7 +1,8 @@
 "use client";
 
-import { useAnimate, useReducedMotion } from "framer-motion";
+import { useAnimate } from "framer-motion";
 import { useEffect } from "react";
+import { useSafeReducedMotion } from "../hooks/useSafeReducedMotion";
 
 const ACCENT_WORD = "web";
 
@@ -15,7 +16,7 @@ export default function AnimatedTitle({
   style?: React.CSSProperties;
 }) {
   const [scope, animate] = useAnimate();
-  const reduced = useReducedMotion();
+  const reduced = useSafeReducedMotion();
   const allWords = lines.flat();
 
   useEffect(() => {

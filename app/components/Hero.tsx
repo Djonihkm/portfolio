@@ -1,10 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { motion, useReducedMotion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import AnimatedTitle from "./AnimatedTitle";
 import { useLanguage } from "../context/LanguageContext";
+import { useSafeReducedMotion } from "../hooks/useSafeReducedMotion";
 
 function GlobeSpinner({ size = 18 }: { size?: number }) {
   return (
@@ -75,7 +76,7 @@ function CursorSpotlight({ sectionRef }: { sectionRef: React.RefObject<HTMLEleme
 }
 
 export default function Hero() {
-  const reduced = useReducedMotion();
+  const reduced = useSafeReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
   const count5 = useCounter(5, 650);
   const count2 = useCounter(2, 650);
@@ -100,7 +101,7 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative bg-[#0f0f0f] md:h-screen flex flex-col md:grid md:grid-cols-2 pt-16"
+      className="relative bg-[#0f0f0f] lg:h-screen flex flex-col lg:grid lg:grid-cols-2 pt-16"
     >
       {!reduced && <CursorSpotlight sectionRef={sectionRef} />}
 
@@ -141,7 +142,7 @@ export default function Hero() {
           <motion.div className="flex flex-wrap gap-3 mb-5" {...fadeUp(0.3)}>
             <motion.a
               href="#work"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-semibold text-white"
+              className="inline-flex items-center justify-center px-6 py-3 rounded-full text-base font-semibold text-white"
               style={{ background: "var(--accent)" }}
               whileHover={reduced ? {} : { scale: 1.05, boxShadow: "0 0 28px rgba(192,57,43,0.55)" }}
               whileTap={reduced ? {} : { scale: 0.97 }}
@@ -155,7 +156,7 @@ export default function Hero() {
               </>}
               <a
                 href="#contact"
-                className="relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white border border-white/30 hover:border-white/70 hover:bg-white/8 transition-all duration-300 group"
+                className="relative inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full text-base font-semibold text-white border border-white/30 hover:border-white/70 hover:bg-white/8 transition-all duration-300 group"
               >
                 {t.hero.cta_contact}
                 <svg
@@ -171,7 +172,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.p
-            className="text-sm text-white/45 tracking-wide flex items-center gap-1.5"
+            className="text-base text-white/50 tracking-wide flex items-center gap-1.5"
             {...fadeUp(0.4)}
           >
             <span aria-hidden style={{ display: "inline-block" }}>
@@ -183,7 +184,7 @@ export default function Hero() {
 
         {/* Stats */}
         <motion.div
-          className="flex items-center gap-5 text-[13px] text-white/40 tracking-wide"
+          className="flex items-center gap-5 text-sm text-white/45 tracking-wide"
           {...fadeUp(0.5)}
         >
           <span>
@@ -200,7 +201,7 @@ export default function Hero() {
 
       {/* ── Desktop photo ── */}
       <motion.div
-        className="relative hidden md:block p-6 pl-0 z-10"
+        className="relative hidden lg:block p-6 pl-0 z-10"
         {...photoAnim}
       >
         <div
@@ -218,6 +219,7 @@ export default function Hero() {
             src="/image.png"
             alt="Djoni OUEDANOU"
             fill
+            sizes="(max-width: 1023px) 0px, 50vw"
             className="object-cover object-top"
             priority
           />

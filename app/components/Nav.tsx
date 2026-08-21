@@ -65,7 +65,7 @@ export default function Nav() {
         </a>
 
         {/* Desktop */}
-        <ul className="hidden md:flex items-center gap-10">
+        <ul className="hidden lg:flex items-center gap-10">
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -80,7 +80,7 @@ export default function Nav() {
         </ul>
 
         {/* Mobile — burger only */}
-        <div className="md:hidden flex items-center gap-4">
+        <div className="lg:hidden flex items-center gap-4">
           <button
             className="flex flex-col gap-[5px] p-1.5"
             onClick={() => setMenuOpen((o) => !o)}
@@ -94,7 +94,7 @@ export default function Nav() {
       </nav>
 
       {/* Mobile menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 bg-white ${menuOpen ? "max-h-52 border-b border-zinc-100" : "max-h-0"}`}>
+      <div className={`lg:hidden overflow-hidden transition-all duration-300 bg-white ${menuOpen ? "max-h-52 border-b border-zinc-100" : "max-h-0"}`}>
         <div className="px-6 py-5 flex flex-col gap-5">
           {links.map((l) => (
             <a
