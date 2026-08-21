@@ -78,7 +78,7 @@ function CursorSpotlight({ sectionRef }: { sectionRef: React.RefObject<HTMLEleme
 export default function Hero() {
   const reduced = useSafeReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
-  const count5 = useCounter(5, 650);
+  const count5 = useCounter(10, 650);
   const count2 = useCounter(2, 650);
   const { t } = useLanguage();
 
@@ -187,7 +187,7 @@ export default function Hero() {
           {...fadeUp(0.5)}
         >
           <span>
-            <span className="tabular-nums">{reduced ? 5 : count5}</span>+ {t.hero.stat_projects}
+            <span className="tabular-nums">{reduced ? 10 : count5}</span>+ {t.hero.stat_projects}
           </span>
           <span className="w-1 h-1 rounded-full bg-white/20" />
           <span>
