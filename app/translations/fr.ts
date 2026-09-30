@@ -25,7 +25,7 @@ export const fr = {
     see: "Voir ↗",
     private: "Privé",
     descriptions: {
-      1: "Suivi en temps réel de la salle informatique de l'INMes — équipements, incidents, rapports.",
+      1: "Suivi en temps réel de la salle informatique de l'INMes, équipements, incidents, rapports.",
       2: "Plateforme de location immobilière, contrats, interface propriétaire, interface admin, interface client.",
       3: "Plateforme complète pour école primaire : élèves, notes, emplois du temps.",
       4: "Gestion d'un club de football : joueurs, matchs, statistiques, finances.",
@@ -41,10 +41,10 @@ export const fr = {
     pillars: [
       { title: "Écoute active",      description: "Je comprends ton besoin avant d'écrire la première ligne. Un projet bien défini, c'est la moitié du travail." },
       { title: "Transparence totale", description: "Tu sais où en est le projet à chaque étape, sans avoir à demander. Pas de surprises, pas de zones grises." },
-      { title: "Engagements tenus",   description: "Les délais convenus sont des promesses, pas des estimations. Ce que je dis, je le fais — dans les temps." },
+      { title: "Engagements tenus",   description: "Les délais convenus sont des promesses, pas des estimations. Ce que je dis, je le fais, dans les temps." },
       { title: "Adaptabilité",        description: "Je m'ajuste à tes contraintes techniques, ton budget et ton rythme. C'est moi qui m'adapte à toi, pas l'inverse." },
       { title: "Discrétion absolue",  description: "Tes données, tes clients, ton code restent confidentiels. Chaque projet est traité comme un actif précieux." },
-      { title: "Livraison soignée",   description: "Code propre, déploiement testé, documentation claire. Tu reçois un produit fini — pas un chantier à finir toi-même." },
+      { title: "Livraison soignée",   description: "Code propre, déploiement testé, documentation claire. Tu reçois un produit fini, pas un chantier à finir toi-même." },
     ],
   },
   services: {
@@ -77,7 +77,7 @@ export const fr = {
     process_label: "Processus",
     process_title: "Comment ça marche ?",
     steps: [
-      { title: "Brief",          description: "On échange sur ton besoin, tes objectifs et ton budget — par email, WhatsApp ou appel vidéo." },
+      { title: "Brief",          description: "On échange sur ton besoin, tes objectifs et ton budget, par email, WhatsApp ou appel vidéo." },
       { title: "Devis",          description: "Tu reçois sous 48h une proposition détaillée : périmètre, planning et tarif fixe. Pas de surprise." },
       { title: "Développement",  description: "Je développe par itérations avec des points réguliers. Tu vois l'avancement à chaque étape." },
       { title: "Livraison",      description: "Déploiement, tests finaux, remise des accès et documentation. Ton produit est prêt à l'emploi." },
@@ -118,7 +118,7 @@ export const fr = {
     send_another: "Envoyer un autre message",
   },
   footer: {
-    copyright: "© 2026 — Développeur Web Full Stack",
+    copyright: "© 2026, Développeur Web Full Stack",
     email: "Email",
   },
 };

@@ -27,7 +27,7 @@ export const en: Translations = {
     see: "View ↗",
     private: "Private",
     descriptions: {
-      1: "Real-time monitoring of the INMes computer lab — equipment, incidents, reports.",
+      1: "Real-time monitoring of the INMes computer lab, equipment, incidents, reports.",
       2: "Real estate rental platform, contracts, landlord interface, admin interface, client interface.",
       3: "Complete platform for a primary school: students, grades, timetables.",
       4: "Football club management: players, matches, statistics, finances.",
@@ -43,10 +43,10 @@ export const en: Translations = {
     pillars: [
       { title: "Active listening",    description: "I understand your need before writing the first line. A well-defined project is half the work." },
       { title: "Full transparency",   description: "You know where the project stands at every step, without having to ask. No surprises, no grey areas." },
-      { title: "Commitments kept",    description: "Agreed deadlines are promises, not estimates. What I say, I do — on time." },
+      { title: "Commitments kept",    description: "Agreed deadlines are promises, not estimates. What I say, I do, on time." },
       { title: "Adaptability",        description: "I adjust to your technical constraints, budget and pace. I adapt to you, not the other way around." },
       { title: "Absolute discretion", description: "Your data, your clients, your code remain confidential. Every project is treated as a precious asset." },
-      { title: "Clean delivery",      description: "Clean code, tested deployment, clear documentation. You receive a finished product — not a construction site." },
+      { title: "Clean delivery",      description: "Clean code, tested deployment, clear documentation. You receive a finished product, not a construction site." },
     ],
   },
   services: {
@@ -79,7 +79,7 @@ export const en: Translations = {
     process_label: "Process",
     process_title: "How does it work?",
     steps: [
-      { title: "Brief",        description: "We discuss your needs, goals and budget — by email, WhatsApp or video call." },
+      { title: "Brief",        description: "We discuss your needs, goals and budget, by email, WhatsApp or video call." },
       { title: "Quote",        description: "You receive a detailed proposal within 48h: scope, timeline and fixed price. No surprises." },
       { title: "Development",  description: "I develop in iterations with regular check-ins. You see the progress at every step." },
       { title: "Delivery",     description: "Deployment, final testing, access handover and documentation. Your product is ready to use." },
@@ -120,7 +120,7 @@ export const en: Translations = {
     send_another: "Send another message",
   },
   footer: {
-    copyright: "© 2026 — Full Stack Developer",
+    copyright: "© 2026, Full Stack Developer",
     email: "Email",
   },
 };
