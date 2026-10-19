@@ -30,7 +30,7 @@ export const fr = {
       3: "Plateforme complète pour école primaire : élèves, notes, emplois du temps.",
       4: "Gestion d'un club de football : joueurs, matchs, statistiques, finances.",
       5: "Application de commande en ligne pour restaurant : menu, interface admin, interface client.",
-      6: "Plateforme de vente de produits de santé.",
+      6: "Plateforme de vente de produits de santé avec paiement en ligne intégré via l'API FedaPay.",
       7: "Communauté qui connecte entrepreneurs africains, investisseurs et curieux, soumission de projets, feedback réel et mise en relation.",
     } as Record<number, string>,
   },

@@ -32,7 +32,7 @@ export const en: Translations = {
       3: "Complete platform for a primary school: students, grades, timetables.",
       4: "Football club management: players, matches, statistics, finances.",
       5: "Online ordering app for a restaurant: menu, admin interface, client interface.",
-      6: "Health products e-commerce platform.",
+      6: "Health products e-commerce platform with online payments integrated through the FedaPay API.",
       7: "Community connecting African entrepreneurs, investors and curious minds, with project submissions, real feedback and networking.",
     },
   },

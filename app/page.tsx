@@ -54,7 +54,7 @@ const projects = [
     id: 6,
     title: "Confio",
     description:
-      "Plateforme de vente de produits de santés",
+      "Plateforme de vente de produits de santé avec paiement en ligne intégré via l'API FedaPay.",
     tech: ["Next.js", "TypeScript", "Prisma"],
     link: "https://confio-gamma.vercel.app/",
     year: "2026",
