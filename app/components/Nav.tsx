@@ -17,8 +17,10 @@ export default function Nav() {
 
   const links = [
     { href: "#work",     label: t.nav.projects },
+    { href: "#technologies", label: t.nav.technologies },
     { href: "#about",    label: t.nav.approach },
     { href: "#services", label: t.nav.services },
+    { href: "#cv",       label: t.nav.cv },
     { href: "#contact",  label: t.nav.contact },
   ];
 
@@ -66,7 +68,7 @@ export default function Nav() {
         </a>
 
         {/* Desktop */}
-        <ul className="hidden lg:flex items-center gap-10">
+        <ul className="hidden lg:flex items-center gap-6">
           {links.map((l) => (
             <li key={l.href}>
               <a

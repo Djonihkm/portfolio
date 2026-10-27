@@ -114,7 +114,7 @@ export default function Hero() {
           animate="visible"
           variants={{ visible: { transition: { staggerChildren: reduced ? 0 : 0.09 } } }}
         >
-          {["Next.js", "TypeScript", "Node.js", "Laravel", "Postgresql"].map((t) => (
+          {["Next.js", "Angular", "TypeScript", "Node.js", "Laravel", "Postgresql"].map((t) => (
             <motion.span
               key={t}
               variants={{

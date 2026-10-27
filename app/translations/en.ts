@@ -3,8 +3,10 @@ import type { Translations } from "./fr";
 export const en: Translations = {
   nav: {
     projects: "Projects",
+    technologies: "Technologies",
     approach: "Approach",
     services: "Services",
+    cv: "CV",
     contact: "Contact",
   },
   hero: {
@@ -35,6 +37,25 @@ export const en: Translations = {
       6: "Health products e-commerce platform with online payments integrated through the FedaPay API.",
       7: "Community connecting African entrepreneurs, investors and curious minds, with project submissions, real feedback and networking.",
     },
+  },
+  technologies: {
+    label: "Technical skills",
+    title: "Technologies I work with.",
+    description:
+      "Tools I use to build modern interfaces, reliable applications and solutions tailored to each project.",
+    categories: {
+      frontend: "Frontend",
+      backend: "Backend & APIs",
+      databases: "Databases",
+      tools: "Tools & collaboration",
+    },
+  },
+  cv: {
+    label: "Professional background",
+    title: "My CV, one click away.",
+    description:
+      "Explore my background, skills and experience in my PDF résumé.",
+    download: "Download my CV (French PDF)",
   },
   approach: {
     label: "Approach",

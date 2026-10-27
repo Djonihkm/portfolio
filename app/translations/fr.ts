@@ -1,8 +1,10 @@
 export const fr = {
   nav: {
     projects: "Projets",
+    technologies: "Technologies",
     approach: "Approche",
     services: "Services",
+    cv: "CV",
     contact: "Contact",
   },
   hero: {
@@ -33,6 +35,25 @@ export const fr = {
       6: "Plateforme de vente de produits de santé avec paiement en ligne intégré via l'API FedaPay.",
       7: "Communauté qui connecte entrepreneurs africains, investisseurs et curieux, soumission de projets, feedback réel et mise en relation.",
     } as Record<number, string>,
+  },
+  technologies: {
+    label: "Compétences techniques",
+    title: "Les technologies que je maîtrise.",
+    description:
+      "Des outils choisis pour concevoir des interfaces modernes, des applications robustes et des solutions adaptées à chaque projet.",
+    categories: {
+      frontend: "Frontend",
+      backend: "Backend & API",
+      databases: "Bases de données",
+      tools: "Outils & collaboration",
+    },
+  },
+  cv: {
+    label: "Parcours professionnel",
+    title: "Mon CV, en un clic.",
+    description:
+      "Retrouvez mon parcours, mes compétences et mes expériences dans mon CV au format PDF.",
+    download: "Télécharger mon CV",
   },
   approach: {
     label: "Approche",

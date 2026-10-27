@@ -7,6 +7,8 @@ import WorkApproach from "./components/WorkApproach";
 import Services from "./components/Services";
 import Testimonials from "./components/Testimonials";
 import ContactSection from "./components/ContactSection";
+import Technologies from "./components/Technologies";
+import CVSection from "./components/CVSection";
 
 const techColors: Record<string, { bg: string; text: string; glow: string }> = {
   "Next.js": { bg: "#18181b", text: "#ffffff", glow: "rgba(24,24,27,0.35)" },
@@ -114,9 +116,10 @@ export default function Home() {
   return (
     <main>
       <Hero />
+      <Technologies />
 
       {/* ── PROJETS ── */}
-      <section id="work" className="border-t py-14 flex flex-col items-center">
+      <section id="work" className="py-14 flex flex-col items-center">
         <div className="w-full max-w-5xl px-6 md:px-10">
           <div className="flex items-end justify-between mb-6">
             <div>
@@ -271,6 +274,7 @@ export default function Home() {
       <WorkApproach />
       <Services />
       <Testimonials />
+      <CVSection />
       <ContactSection />
     </main>
   );

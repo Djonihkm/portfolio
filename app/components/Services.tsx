@@ -58,7 +58,7 @@ export default function Services() {
     <section
       ref={ref}
       id="services"
-      className="border-t border-zinc-100 py-14 flex flex-col items-center px-6 md:px-10"
+      className="py-14 flex flex-col items-center px-6 md:px-10"
     >
       <div className="w-full max-w-5xl">
 
