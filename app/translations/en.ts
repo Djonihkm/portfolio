@@ -8,6 +8,7 @@ export const en: Translations = {
     services: "Services",
     cv: "CV",
     contact: "Contact",
+    backToTop: "Back to top",
   },
   hero: {
     titleLines: [

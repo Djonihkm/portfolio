@@ -6,6 +6,7 @@ export const fr = {
     services: "Services",
     cv: "CV",
     contact: "Contact",
+    backToTop: "Retourner en haut de la page",
   },
   hero: {
     titleLines: [

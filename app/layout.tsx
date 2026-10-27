@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Footer from "./components/Footer";
 import { LanguageProvider } from "./context/LanguageContext";
 import { SITE_URL } from "./lib/constants";
+import BackToTop from "./components/BackToTop";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-display",
@@ -50,6 +51,7 @@ export default function RootLayout({
         <LanguageProvider>
           <Nav />
           {children}
+          <BackToTop />
           <Footer />
         </LanguageProvider>
       </body>
