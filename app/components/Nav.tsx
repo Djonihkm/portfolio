@@ -57,18 +57,18 @@ export default function Nav() {
       }`}
       style={{ color: scrolled ? "#111111" : "#ffffff" }}
     >
-      <nav className="flex items-center justify-between px-6 md:px-14 lg:px-20 h-16">
+      <nav className="flex h-16 items-center justify-between px-6 md:px-10 2xl:px-20">
         <a
           href="#home"
-          className={`font-bold tracking-tight leading-none transition-colors duration-500 ${scrolled ? "text-[#111111]" : "text-white"}`}
-          style={{ fontFamily: "var(--font-display)", fontSize: "35px", fontWeight: 700 }}
+          className={`whitespace-nowrap font-bold tracking-tight leading-none transition-colors duration-500 ${scrolled ? "text-[#111111]" : "text-white"}`}
+          style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.5rem, 3vw, 2.1875rem)", fontWeight: 700 }}
           onClick={() => setMenuOpen(false)}
         >
           Djoni OUEDANOU
         </a>
 
         {/* Desktop */}
-        <ul className="hidden lg:flex items-center gap-6">
+        <ul className="hidden xl:flex items-center gap-4 2xl:gap-6">
           {links.map((l) => (
             <li key={l.href}>
               <a
@@ -83,7 +83,7 @@ export default function Nav() {
         </ul>
 
         {/* Mobile — burger only */}
-        <div className="lg:hidden flex items-center gap-4">
+        <div className="flex items-center gap-4 xl:hidden">
           <button
             className="cursor-pointer flex flex-col gap-[5px] p-1.5"
             onClick={() => setMenuOpen((o) => !o)}
@@ -104,7 +104,7 @@ export default function Nav() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="lg:hidden overflow-hidden bg-white border-b border-zinc-100"
+            className="xl:hidden overflow-hidden bg-white border-b border-zinc-100"
           >
             <div className="px-6 py-6 flex flex-col gap-6">
               {links.map((l) => (
