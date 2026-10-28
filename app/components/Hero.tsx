@@ -105,7 +105,7 @@ export default function Hero() {
       {!reduced && <CursorSpotlight sectionRef={sectionRef} />}
 
       {/* ── Contenu ── */}
-      <div className="relative z-10 flex flex-col justify-between px-6 md:px-14 lg:px-20 pt-16 pb-20 md:pt-16 md:pb-20 lg:pb-24 gap-8 md:gap-0 md:flex-1 md:max-w-2xl md:mx-auto lg:max-w-none lg:mx-0">
+      <div className="relative z-10 flex flex-col justify-start px-6 md:px-14 lg:px-20 pt-16 pb-20 md:pt-16 md:pb-20 lg:pb-24 gap-8 md:gap-10 md:flex-1 md:max-w-2xl md:mx-auto lg:max-w-none lg:mx-0">
         {/* Titre + CTAs + dispo */}
         <div>
           <h1
@@ -160,7 +160,7 @@ export default function Hero() {
 
         {/* Stats */}
         <motion.div
-          className="mt-6 flex items-center gap-5 text-sm text-white/45 tracking-wide md:mt-8"
+          className="flex items-center gap-5 text-sm text-white/45 tracking-wide"
           {...fadeUp(0.5)}
         >
           <span>

@@ -3,12 +3,13 @@
 import { useState, useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
+import { CONTACT_EMAIL } from "../lib/constants";
 
 const contacts = [
   {
     label: "Email",
-    value: "ouedanoudjoniadoule@gmail.com",
-    href: "mailto:ouedanoudjoniadoule@gmail.com",
+    value: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
     color: "#EA4335",
     bg: "rgba(234,67,53,0.08)",
     icon: (
@@ -117,21 +118,39 @@ export default function ContactSection() {
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     setStatus("loading");
+    setErrorMessage(null);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...form, preference }),
       });
-      if (!res.ok) throw new Error();
+      if (!res.ok) {
+        const data = await res.json().catch(() => null);
+        const errorCode =
+          data && typeof data.error === "string" ? data.error : null;
+
+        setErrorMessage(
+          errorCode === "EMAIL_NOT_CONFIGURED"
+            ? t.contact.error_not_configured
+            : errorCode === "EMAIL_DELIVERY_FAILED"
+              ? t.contact.error_delivery
+              : t.contact.error_msg,
+        );
+        setStatus("error");
+        return;
+      }
+
       setStatus("success");
       setForm({ name: "", email: "", phone: "", message: "" });
       setPreference("email");
     } catch {
+      setErrorMessage(t.contact.error_msg);
       setStatus("error");
     }
   }
@@ -440,9 +459,14 @@ export default function ContactSection() {
                 </p>
 
                 {status === "error" && (
-                  <p className="text-sm text-red-500">
-                    Une erreur est survenue. Réessayez ou contactez-moi
-                    directement.
+                  <p role="alert" className="text-sm text-red-500">
+                    {errorMessage ?? t.contact.error_msg}{" "}
+                    <a
+                      href={`mailto:${CONTACT_EMAIL}`}
+                      className="font-semibold underline underline-offset-2"
+                    >
+                      {CONTACT_EMAIL}
+                    </a>
                   </p>
                 )}
 

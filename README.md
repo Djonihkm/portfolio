@@ -18,7 +18,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Contact form email setup
+
+The contact form sends email through your professional mailbox SMTP server. Configure these environment variables locally in `.env.local` and in the Vercel project settings. Get the exact SMTP hostname and port from your LWS email settings:
+
+```env
+SMTP_HOST=your-lws-smtp-host
+SMTP_PORT=465
+SMTP_USER=contact@djoniouedanou.tech
+SMTP_PASS=your-mailbox-password
+```
+
+Port `465` uses SSL; other ports use STARTTLS. Use the port specified by LWS. Keep these values private and do not commit `.env.local`.
 
 ## Learn More
 

@@ -135,6 +135,8 @@ export const en: Translations = {
     message_placeholder: "Describe your project…",
     required_note: "Required fields",
     error_msg: "Something went wrong. Please try again or contact me directly.",
+    error_not_configured: "The contact form is not configured yet. Please email me directly:",
+    error_delivery: "The message could not be sent. Please try again later or email me directly:",
     submit: "Send message",
     sending: "Sending…",
     success_title: "Message sent!",

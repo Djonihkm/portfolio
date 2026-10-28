@@ -133,6 +133,8 @@ export const fr = {
     message_placeholder: "Décrivez votre projet…",
     required_note: "Champs obligatoires",
     error_msg: "Une erreur est survenue. Réessayez ou contactez-moi directement.",
+    error_not_configured: "Le formulaire n'est pas encore configuré. Contactez-moi directement :",
+    error_delivery: "L'envoi a échoué. Réessayez plus tard ou contactez-moi directement :",
     submit: "Envoyer le message",
     sending: "Envoi en cours…",
     success_title: "Message envoyé !",
