@@ -100,12 +100,12 @@ export default function Hero() {
     <section
       ref={sectionRef}
       id="home"
-      className="relative bg-[#0f0f0f] md:min-h-screen lg:h-screen flex flex-col lg:grid lg:grid-cols-2 pt-16"
+      className="relative bg-[#0f0f0f] xl:min-h-screen flex flex-col xl:grid xl:grid-cols-2 pt-16"
     >
       {!reduced && <CursorSpotlight sectionRef={sectionRef} />}
 
       {/* ── Contenu ── */}
-      <div className="relative z-10 flex flex-col justify-start px-6 md:px-14 lg:px-20 pt-16 pb-20 md:pt-16 md:pb-20 lg:pb-24 gap-8 md:gap-10 md:flex-1 md:max-w-2xl md:mx-auto lg:max-w-none lg:mx-0">
+      <div className="relative z-10 flex flex-col justify-start px-6 md:px-14 xl:px-20 pt-16 pb-20 md:pt-16 md:pb-20 xl:flex-1 xl:justify-center xl:gap-10 xl:py-16 md:max-w-2xl md:mx-auto xl:max-w-none xl:mx-0">
         {/* Titre + CTAs + dispo */}
         <div>
           <h1
@@ -177,7 +177,7 @@ export default function Hero() {
 
       {/* ── Desktop photo ── */}
       <motion.div
-        className="relative hidden lg:block p-6 pl-0 z-10"
+        className="relative hidden xl:block p-6 pl-0 z-10"
         {...photoAnim}
       >
         <div
@@ -195,7 +195,7 @@ export default function Hero() {
             src="/image.png"
             alt="Djoni OUEDANOU"
             fill
-            sizes="(max-width: 1023px) 0px, 50vw"
+            sizes="(max-width: 1279px) 0px, 50vw"
             className="object-cover object-top"
             priority
           />
