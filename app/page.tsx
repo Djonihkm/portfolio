@@ -34,7 +34,7 @@ const projects = [
     id: 7,
     title: "Komuniti",
     description:
-      "Communauté qui connecte entrepreneurs africains, investisseurs et curieux, soumission de projets, feedback réel et mise en relation.",
+      "Présenter un projet, recueillir des retours et rencontrer des investisseurs peut être difficile sans espace dédié. Komuniti met en relation entrepreneurs africains, investisseurs et curieux autour de projets.",
     tech: ["Next.js", "PostgreSQL", "Neon"],
     link: "https://www.komuniti.online/",
     year: "2026",
@@ -45,7 +45,7 @@ const projects = [
     id: 1,
     title: "INMeS-TRACK",
     description:
-      "Suivi en temps réel de la salle informatique de l'INMes — équipements, incidents, rapports.",
+      "Suivre une salle informatique et ses incidents peut vite devenir difficile. INMeS-TRACK centralise en temps réel les équipements, les incidents et les rapports.",
     tech: ["Next.js", "TypeScript", "Prisma"],
     link: "https://inmes-track.vercel.app/",
     year: "2026",
@@ -56,7 +56,7 @@ const projects = [
     id: 6,
     title: "Confio",
     description:
-      "Plateforme de vente de produits de santé avec paiement en ligne intégré via l'API FedaPay.",
+      "Trouver et acheter des produits de santé en ligne doit être simple. Confio propose une plateforme de vente avec paiement en ligne intégré via l'API FedaPay.",
     tech: ["Next.js", "TypeScript", "Prisma"],
     link: "https://confio-gamma.vercel.app/",
     year: "2026",
@@ -67,7 +67,7 @@ const projects = [
     id: 2,
     title: "Chez-toi",
     description:
-      "Plateforme de location immobilière, contrats, interface propriétaire, interface admin, interface client.",
+      "La gestion d'une location immobilière implique plusieurs interlocuteurs et documents. Chez-toi réunit les contrats et des espaces dédiés aux propriétaires, aux administrateurs et aux clients.",
     tech: ["Next.js", "PostgreSQL", "Tailwind"],
     link: "https://chez-toi.vercel.app/",
     year: "2026",
@@ -78,7 +78,7 @@ const projects = [
     id: 4,
     title: "Football Club Manager",
     description:
-      "Gestion d'un club de football : joueurs, matchs, statistiques, finances.",
+      "Gérer un club de football nécessite de suivre joueurs, matchs, statistiques et finances. Football Club Manager rassemble ces informations au même endroit.",
     tech: ["Laravel", "MySQL", "Bootstrap CSS"],
     link: "https://olympicfc.hkmhub.com/",
     year: "2025",
@@ -89,7 +89,7 @@ const projects = [
     id: 3,
     title: "EMPPH",
     description:
-      "Plateforme complète pour école primaire : élèves, notes, emplois du temps.",
+      "Le suivi des élèves, des notes et des emplois du temps demande de réunir de nombreuses informations. EMPPH les centralise dans une plateforme dédiée à l'école primaire.",
     tech: ["Laravel", "MySQL", "Bootstrap CSS"],
     link: "https://empph.hkmhub.com/",
     year: "2025",
@@ -101,7 +101,7 @@ const projects = [
   //   id: 5,
   //   title: "Commando",
   //   description:
-  //     "Application de commande en ligne pour restaurant : menu, interface admin, interface client.",
+  //     "Les clients ont besoin de consulter le menu et de commander simplement. Commando propose un parcours de commande en ligne avec un menu et des interfaces dédiées aux clients et à l'administration.",
   //   tech: ["React", "Laravel", "MySQL"],
   //   link: "https://commando.hkmhub.com/",
   //   year: "2025",
