@@ -21,7 +21,7 @@ const dmSans = DM_Sans({
 
 const title = "Djoni OUEDANOU — Développeur Web";
 const description =
-  "Portfolio de Djoni OUEDANOU, développeur web full stack spécialisé en Next.js, React et Node.js.";
+  "Portfolio de Djoni OUEDANOU, développeur web full stack spécialisé en Next.js, React et Laravel.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

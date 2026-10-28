@@ -2,6 +2,7 @@ export const fr = {
   nav: {
     projects: "Projets",
     technologies: "Technologies",
+    about: "À propos",
     approach: "Approche",
     services: "Services",
     cv: "CV",
@@ -55,6 +56,15 @@ export const fr = {
     description:
       "Retrouvez mon parcours, mes compétences et mes expériences dans mon CV au format PDF.",
     download: "Télécharger mon CV",
+  },
+  about: {
+    label: "À propos",
+    title: "Créer, apprendre, donner vie aux idées.",
+    motivation:
+      "Ce qui me motive dans le développement, c'est de partir de rien, résoudre un problème concret et voir une application prendre vie — surtout lorsqu'elle est réellement utilisée.",
+    journey:
+      "Mon parcours s'est construit entre mes études et un apprentissage largement autodidacte. Chaque projet est l'occasion d'apprendre, de progresser et de transformer une idée en outil utile.",
+    personal: "En dehors du code, le football est l'une de mes passions.",
   },
   approach: {
     label: "Approche",

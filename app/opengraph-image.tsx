@@ -38,7 +38,7 @@ export default function Image() {
           Développeur Web Full Stack
         </div>
         <div style={{ display: "flex", fontSize: 26, color: "rgba(255,255,255,0.45)", marginTop: 24 }}>
-          Next.js · React · Node.js · TypeScript
+          Next.js · React · Laravel · TypeScript
         </div>
       </div>
     ),

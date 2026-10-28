@@ -14,9 +14,7 @@ import {
   siJavascript,
   siLaravel,
   siMysql,
-  siNestjs,
   siNextdotjs,
-  siNodedotjs,
   siPhp,
   siPostgresql,
   siReact,
@@ -43,8 +41,6 @@ const technologyGroups = [
   {
     key: "backend",
     technologies: [
-      { name: "Node.js", icon: siNodedotjs },
-      { name: "NestJS", icon: siNestjs },
       { name: "PHP", icon: siPhp },
       { name: "Laravel", icon: siLaravel },
       { name: "RESTful API", icon: null },

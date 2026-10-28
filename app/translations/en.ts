@@ -4,6 +4,7 @@ export const en: Translations = {
   nav: {
     projects: "Projects",
     technologies: "Technologies",
+    about: "About",
     approach: "Approach",
     services: "Services",
     cv: "CV",
@@ -57,6 +58,15 @@ export const en: Translations = {
     description:
       "Explore my background, skills and experience in my PDF résumé.",
     download: "Download my CV (French PDF)",
+  },
+  about: {
+    label: "About me",
+    title: "Creating, learning, bringing ideas to life.",
+    motivation:
+      "What motivates me about development is starting from nothing, solving a real problem and watching an application come to life — especially when people actually use it.",
+    journey:
+      "My journey combines formal studies with a largely self-taught approach. Every project is an opportunity to learn, grow and turn an idea into a useful tool.",
+    personal: "Outside of coding, football is one of my passions.",
   },
   approach: {
     label: "Approach",

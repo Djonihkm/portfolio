@@ -9,13 +9,13 @@ import Testimonials from "./components/Testimonials";
 import ContactSection from "./components/ContactSection";
 import Technologies from "./components/Technologies";
 import CVSection from "./components/CVSection";
+import AboutMe from "./components/AboutMe";
 
 const techColors: Record<string, { bg: string; text: string; glow: string }> = {
   "Next.js": { bg: "#18181b", text: "#ffffff", glow: "rgba(24,24,27,0.35)" },
   TypeScript: { bg: "#3178c6", text: "#ffffff", glow: "rgba(49,120,198,0.4)" },
   Prisma: { bg: "#16A394", text: "#ffffff", glow: "rgba(22,163,148,0.4)" },
   React: { bg: "#20232a", text: "#61dafb", glow: "rgba(97,218,251,0.3)" },
-  "Node.js": { bg: "#3C873A", text: "#ffffff", glow: "rgba(60,135,58,0.4)" },
   PostgreSQL: { bg: "#336791", text: "#ffffff", glow: "rgba(51,103,145,0.4)" },
   MySQL: { bg: "#E48E00", text: "#ffffff", glow: "rgba(228,142,0,0.4)" },
   "Tailwind CSS": {
@@ -271,6 +271,7 @@ export default function Home() {
         </div>
       </section>
 
+      <AboutMe />
       <WorkApproach />
       <Services />
       <Testimonials />
